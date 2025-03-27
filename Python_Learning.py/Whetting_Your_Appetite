@@ -1,0 +1,22 @@
+Specialized GUI application:
+     A Software program designed for a specific task or purpose, using a visual, interactive interface with elements like buttons, icons, and menus, rather than text-based commands.
+Unix shell script and Windows batch files: 
+     Unix Shell Scripting - Involves writing text files containing sequence of commands for a Unix-based OS (Linux) to automate tasks and streamline operations.Shell scripts are best at moving around files and changing text data, not well-suited for GUI applications or games.
+     Windows Batch File - Text file containing sequence of commands that can be executed by Windows command interpreter (cmd.exe or COMMAND.COM) to automate tasks, often with extensions like.bat or.cmd
+Python Offers:
+     Python offers much more structure and support for large programs than shell scripts or batch files can offer.Python also offers much more error checking than C, and, being a very-high-level language(Flexible) and its has data types like arrays and dictionary.
+AWK: 
+    Awk is mostly used for pattern scanning and processing. It searches one or more files to see if they contain lines that matches with the specified patterns and then perform the associated actions. Awk is abbreviated from the names of the developers – Aho, Weinberger, and Kernighan.
+Perl:
+    Perl (short for "Practical Extraction and Reporting Language") is a high-level, general-purpose, interpreted, and dynamic programming language, originally designed for text processing and report generation, but now used for a wide range of tasks including web development, system administration, and network programming. 
+System Call:
+    A system call is a request a program makes to the operating system (OS) kernel to perform a specific task or service, acting as an interface between user-level applications and the kernel. 
+Socket:
+    It is an endpoint of a communication channel, enabling two-way communication between programs, whether on the same or different machines, over a network. 
+Why Python Programs are shorter?
+    1.The high-level data types allow you to express complex operations in a single statement.
+    2. Statement grouping is done by indentation.
+    3. No variable or argument declarations are necessary.
+Origin of Language Name:
+    The Python programming language is named after the Monty Python comedy group, not after the snake. Guido van Rossum, the creator of Python, was a fan of the Monty Python's Flying Circus comedy series and he wanted a name that was short, unique, and slightly mysterious, so he decided to name the language Python
+    
