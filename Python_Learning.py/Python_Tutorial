@@ -8,5 +8,5 @@ Python interpreter is easily extended with new functions and data types implemen
 Also, it can be a extensible language for customized applications.
 Python Standard Library --> Python Language Reference describes the syntax and semantic of Python.
 It will have the predefined modules and functions also, that provide access to system functionality such as file I/O.
-Semantic --> Determines the meaning and behavior of the code.
-Syntax --> Deals with the rules of the language.
+Semantic -->Determines the meaning and behavior of the code.
+Syntax -->Deals with the rules of the language.
