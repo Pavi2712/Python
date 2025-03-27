@@ -1,0 +1,69 @@
+<!-- Dynamic Typing: -->
+    The type of a variable is determined at runtime (when the program runs).You don’t need to explicitly declare the type of a variable.
+Variable Types Are Inferred at Runtime: 
+    Python doesn't require you to declare the type of a variable. 
+    It uses the value assigned to the variable to infer its type.
+    For example, x = 10 makes x an integer, and x = "Hello" changes x to a string.
+No Need for Explicit Type Declarations: 
+    You don’t need to define what type of data a variable will hold in advance. 
+    This makes Python more flexible and easier to write, but it can lead to runtime errors if type mismatches occur.
+Type Checking is Done at Runtime: 
+    Python checks the type of variables when the code is executed. 
+    If you try to perform an operation that’s incompatible with a variable’s type (e.g., adding a string to an integer), Python will raise an error during execution.
+
+<!-- Static Typing: -->
+    In statically typed languages, the type of a variable is determined at compile time (before the program runs).
+    You must declare the type of a variable explicitly, and the compiler checks for type correctness when the program is compiled.
+    If there is a type mismatch (e.g., trying to assign a string to a variable that expects an integer)the compiler will throw an error before the program executes.
+
+<!-- CRUD -->
+    HTTP methods, like GET, POST, PUT, PATCH, and DELETE, are crucial for specifying actions on resources in web applications and APIs, enabling clients to interact with servers in a standardized way. 
+
+Here's a breakdown of the common HTTP methods:
+GET: Retrieves data from a specified resource. It's used for reading information and is considered safe and idempotent (meaning multiple identical requests have the same effect as one). 
+POST: Submits data to be processed to a specified resource, often used for creating new resources. 
+PUT: Updates a specified resource with new data, replacing the existing resource with the new data. 
+PATCH: Partially updates a specified resource, modifying only the provided data. 
+DELETE: Deletes a specified resource. 
+HEAD: Similar to GET, but only retrieves the headers of the response, not the body. 
+OPTIONS: Retrieves the communication options available for the specified resource.
+The HTTP OPTIONS method is a request that asks a server what communication options are available for a resource. It's used to determine which HTTP methods are allowed for a resource, such as GET, POST, or PUT
+When to use:
+For diagnostic and debugging purposes
+To determine what commands are available for a resource or server
+To check if a server supports Cross-Origin Resource Sharing (CORS)
+To determine what headers are supported by a resource
+CORS:
+CORS (Cross-Origin Resource Sharing) is a browser security mechanism that restricts cross-origin HTTP requests initiated from scripts running in the browser, ensuring that web pages can only access resources from the same domain that served them, unless the server explicitly grants permission
+TRACE: Used to echo the received request message back to the client, primarily for testing and debugging.
+
+<!-- Website: -->
+Definition:A collection of static or dynamic web pages that provide information.
+Interactivity:Mostly read-only (users consume content).
+Purpose:Information sharing, blogs, news, portfolios.
+Technology:Basic HTML, CSS, JavaScript (sometimes CMS like WordPress).
+User Authentication:Not always required.
+Example:Wikipedia, news portals, company websites.
+<!-- Web Application:  -->
+Definition: An interactive system where users perform actions and manipulate data.
+Interactivity:Highly interactive (users input data, perform operations).
+Purpose:Functionality-driven (e.g., banking, e-commerce, dashboards).
+Technology:Uses front-end & back-end tech (React, Vue, Angular + Django, FastAPI, Node.js).
+User Authentication:Typically requires login for personalized experiences.
+Example:Gmail, Facebook, Online Banking, Google Docs.
+
+<!-- SPA -->
+    A Single-Page Application (SPA) is a web application that loads a single HTML page and dynamically updates content using JavaScript, instead of reloading the entire page from the server.
+<!-- PWA -->
+    Progressive Web Application (PWA) is a web application that behaves like a native mobile app while still being accessible via a browser. PWAs use modern web capabilities to deliver a fast, reliable, and engaging user experience without requiring an app store download.
+        Works Offline – Uses service workers to cache resources and allow offline access.
+        Responsive Design – Works on mobile, tablet, and desktop.
+        App-like Experience – Feels like a native app with smooth animations and interactions.
+        No App Store Required – Users install it directly from the browser.
+        Push Notifications – Can send real-time notifications like native apps.
+        Fast & Lightweight – Loads quickly, even on slow networks.
+        Secure – Always served over HTTPS for security."
+
+<!-- MPA -->
+    A Multi-Page Application (MPA) is a traditional web application structure where each user interaction loads a new HTML page from the server. This approach is common in websites like e-commerce platforms, blogs, and news sites, where distinct pages are necessary for different content or functionalities.​
+
