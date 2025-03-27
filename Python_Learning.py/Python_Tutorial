@@ -1,0 +1,12 @@
+Python is an easy to learn, powerful(readability , versatile , easy to learn,cross platform) programming language.
+Python is a Interpreted Language --> The code is executed line by line by the interpreter during runtime,without a separate compilation step.
+Compiled --> The entire source code is translated into a machine code by a compiler before the program get executed.
+Python is a dynamically typed language --> It allows variables to change their data type during runtime, meaning we don't need to define them explicity. Memory container is created and the value is stored .
+Static Typing --> The data types are defined during compile time and cannot be changed during runtime, meaning we need to define them.
+The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python web site --> pre-written modules and functions that are built into the core distribution which provides more functionalities for various programming tasks without requiring external installations.
+Python interpreter is easily extended with new functions and data types implemented in C or C++. 
+Also, it can be a extensible language for customized applications.
+Python Standard Library --> Python Language Reference describes the syntax and semantic of Python.
+It will have the predefined modules and functions also, that provide access to system functionality such as file I/O.
+Semantic --> Determines the meaning and behavior of the code.
+Syntax --> Deals with the rules of the language.
