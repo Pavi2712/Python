@@ -1,0 +1,79 @@
+"Input and output are distinguished by the presence or absence of prompts. 
+If prompt apprears then that is a input prombt (>>>)and if not that is mean to be a output prombt by the interpreter.
+
+Comments:
+Comments in Python start with the hash character, # (hash). It is just a comment line for our reference.
+A comment may appear at the start of a line or following whitespace or code, but not within a string literal.
+
+Example for Comments:
+
+# This is a comment line. 
+If the comment line mentioned inside quotes that is know as string."
+
+Python as a Calculator:
+
+"Numbers: 
+Arithmetic operations are performed such as +,-,*,/. Parenthesis () is used for grouping.
+Example1: 2+2 = 4.
+Example2: 2-2 = 0.
+Example3: 2+2 * 4 = 10 --> The multiplication takes place first and addition is performed second based on BODMAS Rule
+Example4: (50 - 5*6) / 4 = 5.0 --> Division operator returns float value and returns the quotient.
+Example5: (50 - 5*6) / 4 = 5.0 --> Floor Division operator returns integer value and returns the quotient.
+Example6: 17%3 = 2 --> It returns the integer value and returns the remainder.
+Example7: 5 ** 2 = 25 --> It returns the integer value and ** returns the power value.
+In interactive mode, the last printed expression is assigned to the variable _. But this is not good practice. We need to define a variable and assign the value.
+Example:
+price = 12.5 
+12.5 * 100.50 = 1256.25
+price+_ = 1268.75
+
+Python also has built-in support for complex numbers. We use j or J for imaginary part. Example: 3+5j.
+
+Text: 
+Python can manipulate text(known as string) as well as numbers. They can be enclosed within single or double quotes.
+Example1: 'spam eggs' = 'spam eggs'
+Example2: ""spam eggs"" = 'spam eggs'
+To quote a quote, we need to “escape” it, by preceding it with \. 
+Example1: 'doesn\'t' (Note: Escape \ is given inside single quotes) = ""doesn't""
+Example2: ""doesn't"" = ""doesn't"" (Note: The string is given inside the double quotes.Since, escape is not needed.
+
+-->In the Python shell, the string definition and output string can look different.The Print() function provides more readable output. That is if we use print() function to print then the escape characters , like \n , \ are not printed liked string that is the actions only will take place.
+Example: 
+s = 'First line.\nSecond line.'
+s  // output = 'First line.\nSecond line.'
+print(s) 
+//output =
+First line.
+Second line.
+
+To Escape we use \
+To Newline we use \n
+To print raw data we use r 
+Example for new line:
+print('C:\some\name')
+Output: 
+C:\some
+ame
+
+Example for raw data:
+print(r'C:\some\name')
+C:\some\name
+
+-->Strings can be concatenated with the + operator.
+Example: 4*'pavi' + 'thra' = pavipavipavithra
+
+-->Two or more string literals (i.e. the ones enclosed between quotes) next to each other are automatically concatenated.
+Example: 'Pavi' 'thra ' ' ramasamy' = Pavithra ramasamy
+
+--> Strings are immutable, we cant insert the values in string and we can only access it. The negative index starts with -1.
+Example:
+
+Word = 'Pavithra'
+Word[0] = P
+Word[-1] = a
+
+List: List has collection of values separated by commas and surrounded by square bracket. Usually list will have common data types but it may contain different data types too. 
+For Example: List = ['pavi' , 10 , 20 , 'thra'] 
+
+
+"
