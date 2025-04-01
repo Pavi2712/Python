@@ -1,0 +1,311 @@
+<!-- if Statement: -->
+   If Statement checks the condition and if the condition is true it goes for if statement or it will move to the following statements if available. else , elif.
+<!-- for Statement: -->
+    for statement iterates over the items of any sequence (a list or a string), in the order that they appear in the sequence.
+    Example: 
+       words = ['cat', 'window', 'defenestrate']
+       for w in words:
+       print(w, len(w))
+<!-- range() function: -->
+    If we want to iterate over a sequence of numbers, the built-in function range() is used.
+Syntax : range(start value , end value , step value)
+Example: 
+for x in range(0,10):
+print (x)
+
+Output: 
+
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+Example 2: 
+ list(range(0,10,2))
+[0, 2, 4, 6, 8]
+
+<!-- enumerate() function: -->
+    Syntax : enumerate(iterable, start=0) Start value is default, returns the enumerate object. iterable must be a sequence and the start value default is 0 and we can mention the random value.
+   For Example:  
+    seasons = ['spring','autumn','summer','winter']
+    list(enumerate(seasons,start=2))
+    output = [(2, 'spring'), (3, 'autumn'), (4, 'summer'), (5, 'winter')]
+
+<!-- break() Statement: -->
+    It will break the loop. Also, we can use this statement to break the innermost loop also.
+
+   Example: 
+for n in range(1,10):
+...     for x in range(2,n):
+...         if n%x == 0:
+...             print(f""{n} equals {x} and {n//x}"")
+...             break
+
+Output: 
+4 equals 2 and 2
+6 equals 2 and 3
+8 equals 2 and 4
+9 equals 3 and 3
+
+<!-- continue() Statement: -->
+    "Continue statement just skip the current iteration and move to nest iteration.
+Example:
+for n in range(1,10):
+...     if n%2 == 0:
+...         print(f""The number is a even number {n}"")
+...         continue
+...     print(f""The number is a odd number {n}"")
+
+Output:
+The number is a odd number 1
+The number is a even number 2
+The number is a odd number 3
+The number is a even number 4
+The number is a odd number 5
+The number is a even number 6
+The number is a odd number 7
+The number is a even number 8
+The number is a odd number 9
+
+<!-- else Clauses on Loops: -->
+     "In for loop the else part is executed only after final iteration. that is, if no break occurred.
+In while loop, it’s executed after the loop’s condition becomes false.  Both the statements else part is not executed if it is broken by break.
+
+Example: It contains the break and else part in for loop.
+
+for x in range(2,10):
+for n in range(2,x):
+if x%2==0: 
+  print(""It is not a prime number"")
+  break
+else:
+print(""This is a Prime number"")
+
+<!-- pass Statement: -->
+   It does nothing. It can be used when a statement is required syntactically but the program requires no action.
+Example: 
+while true:
+pass
+
+<!-- match() Statement: -->
+"--> A match statement takes an expression and compares its value to successive patterns given as one or more case blocks.Only the first pattern that matches gets executed and it can also extract components (sequence elements or object attributes) from the value into variables.
+Example:  
+  def http_error(status):
+...     match status:
+...         case 400:
+...             return ""Bad Request""
+...         case 404:
+...             return ""Not found""
+...         case 500:
+...             return ""Bad Gateway""
+...
+>>> http_error(404)
+Output:
+""Not found""
+
+--> Also we can compare several patterns using | (or).
+Example: 
+case 401 | 403 | 404:
+    return ""Not allowed""
+--> If you are using classes to structure your data you can use the class name followed by an argument list resembling a constructor, but with the ability to capture attributes into variables.
+Example:
+class Point:
+...     def __init__(self , x , y):
+...         self.x = x
+...         self.y = y
+... def where_is(point):
+...     match point:
+...         case Point(x=0,y=0):
+...             return ""Origin""
+...         case Point(x=x,y=0):
+...             print(f""The value of x is {x}"")
+...         case Point(x=0,y=y):
+...             print(f""The value of y is {y}"")
+...         case Point(x=x , y=y):
+...             print(""Nothing"")
+
+__match_args__ is an attribute that can be defined in a class to specify how an object of that class should be destructured when used in pattern matching.
+
+Example:
+ class Point:
+...     __match_args__ = ('x','y')
+...     def __init__(self,x,y):
+...         self.x = x
+...         self.y = y
+... def describe(point):
+...     match point:
+...         case Point(0,0):
+...             print(""Origin"")
+...         case Point(x,y):
+...             print(f""The value of x is {x} and y is {y}"")
+...
+>>> P = Point(2,3)
+>>> describe(P)
+Output:
+The value of x is 2 and y is 3
+
+--> We can add an if clause to a pattern, known as a “guard”. If the guard is false, match goes on to try the next case block. Note that value capture happens before the guard is evaluated.
+Example:
+
+>>> class Point:
+...     __match_args__ = ('x','y')
+...     def __init__(self,x,y):
+...         self.x = x
+...         self.y = y
+... def describe(point):
+...     match point:
+...         case Point(x,y) if x==y:
+...             print(""Origin"")
+...         case Point(x,y):
+...             print(f""The value of x is {x} and y is {y}"")
+...
+>>> P = Point(2,3)
+>>> describe(P)
+The value of x is 2 and y is 3
+>>>
+>>> P = Point(2,2)
+>>> describe(P)
+Origin
+
+<!-- Defining Functions: -->
+     The keyword def introduces a function definition. It must be followed by the function name and the parenthesized list of formal parameters. The statements that form the body of the function start at the next line, and must be indented.
+
+The first statement of the function may be a string literal.
+
+The execution of a function introduces a new symbol table used for the local variables of the function. More precisely, all variable assignments in a function store the value in the local symbol table; whereas variable references first look in the local symbol table, then in the local symbol tables of enclosing functions, then in the global symbol table, and finally in the table of built-in names.
+
+When a function calls another function, or calls itself recursively, a new local symbol table is created for that call.
+
+
+<!-- More on Defining Functions: -->
+      "Default Arguement Values: 
+                           We can specify the default value for the arguements for one or more and we can able to pass values also.
+Example: 
+ def ask_ok(prompt , retrives = 3 , reminder ='Please try again'):
+...     while True:
+...         reply = input(prompt)
+...         if reply in {'y', 'ye' , 'yes'}:
+...             return(""The answer is yes"")
+...         if reply in {'n','no','nope'}:
+...             return(""The answer is no"")
+...         retrives = retrives - 1
+...         if retrives < 0:
+...             raise ValueError('invalid user response')
+...             print(reminder)
+...
+>>> ask_ok('no',2)
+no
+no
+no
+
+<!-- Keyword Arguement: -->
+It is represented by the keyword and the value is assigned to the keyword. It has the form kwarg=value.
+Example:
+def parrot(voltage, state='a stiff', action='voom', type='Norwegian Blue'):
+    print(""-- This parrot wouldn't"", action, end=' ')
+    print(""if you put"", voltage, ""volts through it."")
+    print(""-- Lovely plumage, the"", type)
+    print(""-- It's"", state, ""!"")
+
+--> When a final formal parameter of the form **name is present, it receives a dictionary containing all keyword arguments except for those corresponding to a formal parameter.
+--> *name which receives tuple containing the positional arguments beyond the formal parameter list. (*name must occur before **name.)"
+
+<!-- Special Parameters: -->
+"def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2): * and / are optional.
+There are three types we can pass the arguement: 
+positional-only - > In this the values are passed by postional only.Positional-only parameters are placed before a / (forward-slash)
+positional-or-keyword ->If / and * are not present in the function definition, arguments may be passed to a function by position or by keyword.
+keyword-only -> To mark parameters as keyword-only, indicating the parameters must be passed by keyword argument, place an * in the arguments list just before the first keyword-only parameter."
+
+<!-- Arbitrary Arguement Lists: -->
+   "Function can be called with an arbitrary number of arguments. 
+Example: 
+def concat(*args , sep='/'):
+...     return sep.join(args)
+... concat('pavi','sri','suba','revathi')
+...
+'pavi/sri/suba/revathi'"
+
+<!-- UnPacking Arguement Lists: -->
+"The reverse situation occurs when the arguments are already in a list or tuple but need to be unpacked for a function call requiring separate positional arguments.
+Example:
+ args = [3,10,1]
+>>> list(range(*args))
+[3, 4, 5, 6, 7, 8, 9]
+
+-->Dictionaries can deliver keyword arguments with the **-operator.
+Example:
+ def parrot(voltage , state = 'a stiff' ,action = 'voom'):
+...         print(""Voltage"", voltage)
+...         print(""State"" , state)
+...         print(""Action"" , action)
+... d = {""voltage"":""4 million"" , ""state"":""TN"", ""action"":""VOOM""}
+ <!-- If we give one * below then it will access only the key not the value. -->
+... parrot(**d) 
+...
+Voltage 4 million
+State TN
+Action VOOM"
+
+<!-- Lambda Expression: -->
+   Small anonymous functions can be created with the lambda keyword.
+Example1:
+ def write_lambda(n):
+...         return lambda x: x+n
+... f = write_lambda(25)
+... f(2)
+27
+Example2:
+>>> pairs = [(1,'one') , (2,'two'), (3,'three') , (4,'four')]
+>>> pairs.sort(key = lambda pair: pair[1])
+>>> pairs
+[(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+
+<!-- Documentation Strings: -->
+        "1. The first line should always be a short, concise summary of the object’s purpose.
+2. This line should begin with a capital letter and end with a period.
+3.If there are more lines in the documentation string, the second line should be blank, visually separating the summary from the rest of the description. 
+4.The Python parser does not strip indentation from multi-line string literals in Python.
+5.The first non-blank line after the first line of the string determines the amount of indentation for the entire documentation string.
+
+Example: 
+def my_function():
+    """"""Do nothing, but document it.
+
+    No, really, it doesn't do anything.
+    """"""
+    pass
+
+print(my_function.__doc__)
+Do nothing, but document it.
+
+    No, really, it doesn't do anything."
+
+<!-- Function Annotations: -->
+    1.Annotations are stored in the __annotations__ attribute of the function as a dictionary and have no effect on any other part of the function.
+2.Parameter annotations are defined by a colon after the parameter name, followed by an expression evaluating to the value of the annotation. Return annotations are defined by a literal ->, followed by an expression, between the parameter list and the colon denoting the end of the def statement. 
+
+Example:
+>>> def my_function(ham: str , egg: str = 'eggs')->str:
+...         print(""Annotations"" , my_function.__annotations__)
+...         print(""The value of ham and eggs :"" , ham , egg)
+... my_function('spam')
+...
+Annotations {'ham': <class 'str'>, 'egg': <class 'str'>, 'return': <class 'str'>}
+The value of ham and eggs : spam eggs
+
+<!-- Intermezzo: Coding Style: -->
+
+1.Use 4-space indentation, and no tabs.
+2.Wrap lines so that they don’t exceed 79 characters.
+3.Use docstrings and comments.
+4.Use UpperCamelCase for classes and lowercase_with_underscores for functions and methods.
+
+
+
