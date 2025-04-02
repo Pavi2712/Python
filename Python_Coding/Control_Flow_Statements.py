@@ -1,9 +1,10 @@
 # If Statement
-#inputValue = int(input("Enter a value:")) # Gets the input from the User.
-#if (inputValue%2 == 0): # Checks whether the entered value is Even if yes Print as Even. Or print Odd in else block
-#print("Entered value is Even")
-#else:
- #   print("Entered value is Odd")
+inputValue = int(input("Enter a value:")) # Gets the input from the User.
+if (inputValue%2 == 0): # Checks whether the entered value is Even if yes Print as Even. Or print Odd in else block
+ 
+    print("Entered value is Even")
+else:
+    print("Entered value is Odd")
 
 # for Statement:
 # for statement iterates over the items of any sequence (a list or a string), in the order that they appear in the sequence.
