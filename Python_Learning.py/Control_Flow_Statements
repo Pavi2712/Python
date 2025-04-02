@@ -232,11 +232,15 @@ def concat(*args , sep='/'):
 ...
 'pavi/sri/suba/revathi'"
 
-<!-- UnPacking Arguement Lists: -->
+<!-- UnPacking Argument Lists: -->
 "The reverse situation occurs when the arguments are already in a list or tuple but need to be unpacked for a function call requiring separate positional arguments.
 Example:
- args = [3,10,1]
->>> list(range(*args))
+# hello world
+print("hello world")
+
+#
+args = [3,10,1]
+list(range(*args))
 [3, 4, 5, 6, 7, 8, 9]
 
 -->Dictionaries can deliver keyword arguments with the **-operator.

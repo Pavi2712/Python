@@ -12,20 +12,8 @@ If the comment line mentioned inside quotes that is know as string."
 
 Python as a Calculator:
 
-"Numbers: 
+Numbers: 
 Arithmetic operations are performed such as +,-,*,/. Parenthesis () is used for grouping.
-Example1: 2+2 = 4.
-Example2: 2-2 = 0.
-Example3: 2+2 * 4 = 10 --> The multiplication takes place first and addition is performed second based on BODMAS Rule
-Example4: (50 - 5*6) / 4 = 5.0 --> Division operator returns float value and returns the quotient.
-Example5: (50 - 5*6) / 4 = 5.0 --> Floor Division operator returns integer value and returns the quotient.
-Example6: 17%3 = 2 --> It returns the integer value and returns the remainder.
-Example7: 5 ** 2 = 25 --> It returns the integer value and ** returns the power value.
-In interactive mode, the last printed expression is assigned to the variable _. But this is not good practice. We need to define a variable and assign the value.
-Example:
-price = 12.5 
-12.5 * 100.50 = 1256.25
-price+_ = 1268.75
 
 Python also has built-in support for complex numbers. We use j or J for imaginary part. Example: 3+5j.
 
@@ -35,7 +23,7 @@ Example1: 'spam eggs' = 'spam eggs'
 Example2: ""spam eggs"" = 'spam eggs'
 To quote a quote, we need to “escape” it, by preceding it with \. 
 Example1: 'doesn\'t' (Note: Escape \ is given inside single quotes) = ""doesn't""
-Example2: ""doesn't"" = ""doesn't"" (Note: The string is given inside the double quotes.Since, escape is not needed.
+Example2: ""doesn't"" = ""doesn't"" (Note: T6yhe string is given inside the double quotes.Since, escape is not needed.
 
 -->In the Python shell, the string definition and output string can look different.The Print() function provides more readable output. That is if we use print() function to print then the escape characters , like \n , \ are not printed liked string that is the actions only will take place.
 Example: 
