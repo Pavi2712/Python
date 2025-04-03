@@ -1,0 +1,39 @@
+Classes:
+1.Classes provide a means of bundling data and functionality together
+==> Classes act as blueprint,which group the related data and functions into a single , organized unit.
+
+2.Creating a new class creates a new type of object, allowing new instances of that type to be made ==> defining a new class creates a blueprint or template for a new type of object, and that blueprint allows you to create multiple individual objects (instances) based on that blueprint. 
+
+3.Each class instance can have attributes attached to it for maintaining its state
+==> each object (or "instance") created from a class can have its own set of data, called attributes, which store information about that specific object's state or properties. 
+
+4.Class instances can also have methods (defined by its class) for modifying its state
+==> Each object of a class can have a function defined by the class that can be used to change that objects attribute.
+
+5.Python’s class mechanism adds classes with a minimum of new syntax and semantics
+==> Python's implementation is designed to be simple and understandable with minimal new features(Syntax) and concepts that is behaviour (Sematics)
+
+6.Modula-3 ==> It is a ALGOL like language meaning Algorithmic language. It was designed for scientific and engineering computations.
+
+Python classes provide all the standard features of Object Oriented Programming:
+      1.The class inheritance mechanism allows multiple base classes, a derived class can override any methods of its base class or classes, and a method can call the method of a base class with the same name.
+
+Objects can contain arbitrary amounts and kinds of data,As is true for modules, classes partake of the dynamic nature of Python: they are created at runtime, and can be modified further after creation.
+==> flexible container that can hold any type of data and quantity of information.Since it is true for modules and also Python is a dynamically typed language(the type is not checked until runtime)After an object is created, you can add new attributes (data) to it, change the values of its attributes, or even add new methods (functions) to it, all during the program's execution. 
+
+In C++ terminology, normally class members (refer to the variables (data members) and functions (methods) defined within a class that determine the properties and behavior of objects created from that class. ) (including the data members) are public, and all member functions are virtual.
+
+
+A Word About Names and Objects:
+What is mean by aliasing?
+
+Objects have individuality, and multiple names (in multiple scopes) can be bound to the same object
+==>Each object in a programming language has a unique identity, and multiple variables (names) can point to or refer to the same object, even if those variables are in different parts of the code (different scopes). 
+
+This is not a best practice, but also useful since aliases behave like pointers in some respects.
+
+For Example:
+For example, passing an object is cheap since only a pointer is passed by the implementation; and if a function modifies an object passed as an argument, the caller will see the change — this eliminates the need for two different argument passing mechanisms as in Pascal.
+
+Python Scopes and Namespaces:
+Class definitions play some neat tricks with namespaces likewise scopes and namespaces also have some tricks.Let us know that below:
