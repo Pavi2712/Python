@@ -1,0 +1,52 @@
+List:
+  List contains values with different data types separated by comma and surrounded by square brackets.
+Using Lists as Stacks:
+  Stack follows Last-in , First-out mechanism. To add the item to the top of the stack use append and for removing we can use pop()method.
+Using Lists as Queues:
+  Queues follows First-in First out mechanism.So add the elements we use append and to remove the element we use popleft() method.
+  But we could not use popleft() method directly. We have to import deque in-built method from collections.So we can access it and remove the First in element in the list.
+Deques are a generalization of stacks and queues (the name is pronounced “deck” and is short for “double-ended queue)
+
+List Comprehensions:
+  It will create the list based on the given conditions.
+Zip():
+ It is a built in method used to Iterate over several iterables in parallel, producing tuples with an item from each one.
+
+ Difference between del and pop()
+ pop() returns the deleted item and it can be used in list , dictionaries. We can delete the element the index / key.
+ del() does not return anything. It will delete the entire list , dictionary or variable. We can delete the element by index / key or we can delete fully.
+
+Tuble():
+ This contains sequence of values separated by comma and surrounded by Parenthesis.
+ Tubles are immutable. So we could not change the values inside the tuble.
+ Tuble,list - heterogeneous sequence of elements - contains different types of data.
+
+Sets():
+ A set is an unordered collection with no duplicate elements. Basic uses include membership testing and eliminating duplicate entries. 
+ It also support union, intersection, difference, and symmetric difference..
+
+Dictionaries:
+ It is a set of key and value pairs and the keys should be unique.It is also possible to delete a key:value pair using del.
+
+Difference between sort() and sorted():
+sort() => It returns nothing and the values are sorted in the original array.
+sorted() => It returns the new sorted list.
+
+Looping Techniques:
+ While looping through dictionary, the key and value can be retreived at the same time using the items() method.
+items() Method: It will return the new view of dictionary items in ((key , value) pairs)
+
+More on Conditions:
+1.The comparison operators in and not in are membership tests that determine whether a value is in (or not in) a container. ==> not has the highest priority and or the lowest.
+2.The operators is and is not compare whether two objects are really the same object. 
+3.short-circuit operators: and and or. Their arguments are evaluated from left to right.Once the outcome is acheived the exacution stops.
+
+Comparing Sequences and Other Types:
+The comparison uses lexicographical ordering: first the first two items are compared, and if they differ this determines the outcome of the comparison; if they are equal, the next two items are compared, and so on, until either sequence is exhausted. 
+
+
+
+
+
+
+
