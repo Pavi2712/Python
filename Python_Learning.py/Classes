@@ -37,3 +37,29 @@ For example, passing an object is cheap since only a pointer is passed by the im
 
 Python Scopes and Namespaces:
 Class definitions play some neat tricks with namespaces likewise scopes and namespaces also have some tricks.Let us know that below:
+
+Namespace:
+==>A namespace is a mapping from names to objects --> Meaning it is a container which will store the names of the object and functions.
+==>Example of Namespace are: It may be the built in , global , local , or object namespace.
+==>In a sense the set of attributes of an object also form a namespace.
+==>The important thing to know about namespaces is that there is absolutely no relation between names in different namespaces;
+==>Namespaces are created at different moments and have different lifetimes. 
+==>The namespace containing the built-in names is created when the Python interpreter starts up, and is never deleted.
+==>The statements executed by the top-level invocation of the interpreter, either read from a script file or interactively, are considered part of a module called __main__, so they have their own global namespace. (The built-in names actually also live in a module; this is called builtins.)
+
+
+For Example: Human and Animals are different namespace, may have the same name but has no relation.
+
+Module attributes are writable: you can write modname.the_answer = 42. Writable attributes may also be deleted with the del statement. For example, del modname.the_answer will remove the attribute the_answer from the object named by modname.
+
+A First Look at Classes:
+-->Class Definition Syntax:
+    class ClassName:
+        <statement-1>
+        <statement-N>
+
+-->The function definitions inside a class normally have a peculiar(... , *args) form of argument list, dictated by the calling conventions for methods.
+-->When a class definition is entered, a new namespace is created, and used as the local scope — thus, all assignments to local variables go into this new namespace. In particular, function definitions bind the name of the new function here.
+
+Class Objects:
+Class objects support two kinds of operations: attribute references and instantiation.

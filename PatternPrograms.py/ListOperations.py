@@ -9,7 +9,7 @@ def listoperation(sampleList):
     print("Sum",a) 
     average = a//len(sampleList) #Average
     print("average",average)
-    maximumValue = max(sampleList)
+    maximumValue = max(sampleList) #maximum
     print("maximumValue", maximumValue)
 listoperation([1,2,3,4,5])
 
