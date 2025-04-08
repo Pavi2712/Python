@@ -62,4 +62,136 @@ A First Look at Classes:
 -->When a class definition is entered, a new namespace is created, and used as the local scope — thus, all assignments to local variables go into this new namespace. In particular, function definitions bind the name of the new function here.
 
 Class Objects:
+data attributes correspond to “instance variables”
+ Data attributes need not be declared; like local variables, they spring into existence when they are first assigned to.
 Class objects support two kinds of operations: attribute references and instantiation.
+Attribute references use the standard syntax used for all attribute references in Python: obj.name.
+Example:
+class MyClass:
+    """A simple example class"""
+    i = 12345
+
+    def f(self):
+        return 'hello world'
+
+-->MyClass.i and MyClass.f are valid attribute references
+
+Class instantiation uses function notation. Just pretend that the class object is a parameterless function that returns a new instance of the class.
+x = MyClass()
+
+Instance Objects:
+There are two kinds of valid attribute names: data attributes and methods.
+data attributes correspond to “instance variables”
+Data attributes need not be declared; like local variables, they spring into existence when they are first assigned to.
+
+Method Objects:
+ Methid Object is nothing but we can able to access the method / function using its oject.
+ Example:
+ class Hello:
+    def f(self):
+        return "Hello World"
+Y = Hello()
+z = Y.f()
+print(z)
+
+The call x.f() is exactly equivalent to MyClass.f(x).
+
+Class and Instance Variables:
+
+Instance variables are for data unique to each instance and class variables are for attributes and methods shared by all instances of the class.
+
+Difference between Method object and Function Object:
+class MyClass:
+    def f(self):
+        print("This is method f.")
+
+    i = 42  # Class attribute
+
+# Create an instance of MyClass
+x = MyClass()
+
+x.f # It is a method object
+MyClass.f(x) # It is a function object
+
+Random Remarks:
+If the same attribute name occurs in both an instance and in a class, then attribute lookup prioritizes the instance.
+
+The object properties are called data attributes of the object.
+
+Inheritance:
+    syntax:
+    class DerivedClassName(BaseClassName):
+    <statement - 1>
+    <statement - N>
+
+--> The name BaseClassName must be defined in a namespace accessible from the scope containing the derived class definition.
+--> In the place of BaseClassName other arbitary expressions is also allowed.This can be useful, for example, when the base class is defined in another module:
+class DerivedClassName(modname.BaseClassName): #Here we are using the base class from different module.
+
+Execution of derived class depends on the base class , It will resolve attribute reference.This rule is applied recursively if the base class itself is derived from some other class.
+
+Method references are resolved as follows: the corresponding class attribute is searched, descending down the chain of base classes if necessary, and the method reference is valid if this yields a function object.
+
+Derived classes can override the methoods of the base class.
+A method of a base class that calls another method defined in the same base class may end up calling a method of a derived class that overrides it.--> if the changes done in derived class and the same method that in base class then derived class value overrides the base class.
+
+Python has two built-in functions that work with inheritance:
+isinstance(object, classinfo)
+Return True if the object argument is an instance of the classinfo argument, or of a (direct, indirect, or virtual) subclass thereof.
+issubclass(class, classinfo)
+Return True if class is a subclass (direct, indirect, or virtual) of classinfo. A class is considered a subclass of itself.
+
+Multiple Inheritance:
+Class Inheritance with multiple base class:
+    class DerivedClassName(Base1, Base2, Base3):
+    <statement - 1>
+    <statement - N>
+--> The search for attributes inherited from a parent class as depth-first, left-to-right, not searching twice in the same class where there is an overlap in the hierarchy.Thus, if an attribute is not found in DerivedClassName, it is searched for in Base1, then (recursively) in the base classes of Base1, and if it was not found there, it was searched for in Base2, and so on.
+
+-->The method resolution order changes dynamically to support cooperative calls to super().
+
+super(base1,base2)
+Syntax:
+It follows left to right ordering.
+super().method_name() ==>super class refers to the next class in hiracy and the method is what searching for in parent class by the given order of base class.
+
+ diamond relationships (where at least one of the parent classes can be accessed through multiple paths from the bottommost class).
+
+ monotonic (meaning that a class can be subclassed without affecting the precedence order of its parents).
+
+Private Variables: 
+  Python does not support to have private variables directlt. Since we are using mangling techniques to make the attributes as private.
+
+  It is nothing but mentioning the double underscrore infront of the attribute.
+  
+  Mangling works in two ways:
+  1.Double underscore (__): When you define an attribute with two leading underscores, Python automatically changes the name of the attribute by adding a _ClassName prefix to it.
+  2.Single Leading Underscore (_): A single leading underscore is a convention indicating that an attribute is intended for internal use and should not be accessed directly, but it is not subject to name mangling.
+
+  We can able to access the Mangling that is private variables by two types:
+  1.By public method, dirctly accessing the method
+  2.By _classname
+
+Odds and Ends:
+Since python as dynamic language we dont use data types. If we want to use then we can import the built-in dataclasses.
+
+Iterators:
+Basically, the iterations are done by for loop. Instead we can also use iter() in the container object, which calls the next() methid for next iteration and once the index position is completed stop the execution by raising StopIteration.
+
+Generators:
+Generators are a simple and powerful tool for creating iterators.
+
+They are written like regular functions but use the yield statement whenever they want to return data. Each time next() is called on it, the generator resumes where it left off (it remembers all the data values and which statement was last executed). 
+
+What makes generators so compact is that the __iter__() and __next__() methods are created automatically.
+Another key feature is that the local variables and execution state are automatically saved between calls. 
+
+when generators terminate, they automatically raise StopIteration. 
+
+
+
+
+
+
+
+
