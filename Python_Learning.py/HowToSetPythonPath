@@ -1,0 +1,13 @@
+How to set the python path:
+set PYTHONPATH=D:\ # We have setted the python path to D:\
+How to view the setted python path:
+echo %PYTHONPATH%
+How the view the sys path?
+python -c "import sys; print(sys.path)"
+['', 'D:\\', 'C:\\Users\\pkramasamy\\AppData\\Local\\Programs\\Python\\Python313\\python313.zip', 'C:\\Users\\pkramasamy\\AppData\\Local\\Programs\\Python\\Python313\\DLLs', 'C:\\Users\\pkramasamy\\AppData\\Local\\Programs\\Python\\Python313\\Lib', 'C:\\Users\\pkramasamy\\AppData\\Local\\Programs\\Python\\Python313', 'C:\\Users\\pkramasamy\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages']
+How to set the python path to empty?
+set PYTHONPATH= # now the python path is not assigned
+In this we can able to see that python path is not assigned
+['', 'C:\\Users\\pkramasamy\\AppData\\Local\\Programs\\Python\\Python313\\python313.zip', 'C:\\Users\\pkramasamy\\AppData\\Local\\Programs\\Python\\Python313\\DLLs', 'C:\\Users\\pkramasamy\\AppData\\Local\\Programs\\Python\\Python313\\Lib', 'C:\\Users\\pkramasamy\\AppData\\Local\\Programs\\Python\\Python313', 'C:\\Users\\pkramasamy\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages']
+
+  
