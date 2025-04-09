@@ -1,2 +1,2 @@
-import Fibo
-Fibo.fib(1000)
+from Fibo import fib
+fib(10)

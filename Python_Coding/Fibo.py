@@ -13,4 +13,7 @@ def fib2(n):
         a, b = b, a+b
     return result
 
-     
+if __name__ == "__main__":
+    import sys
+    fib(sys.args[1])
+    fib(10)
