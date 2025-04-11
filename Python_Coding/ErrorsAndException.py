@@ -111,6 +111,7 @@ import sys
 # def main():
 #     try:
 #         divide(10, 0)
+#         print("Checking")
 #     except ZeroDivisionError as e:
 #         print(f"Handling error in main: {e}")  # Handle it at a higher level
 
@@ -165,14 +166,14 @@ import sys
 #     pass
 # raise MyCustomError("Something custom went wrong!") # MyCustomError:Something custom went wrong! is printed
 
-def divide(x, y): # defining a function
-    try:
-        result = x / y
-    except ZeroDivisionError: # Expecting ZeroDivisionError
-        print("division by zero!")
-    else: # If the exception is not ZeroDivisionError then else part is executed
-        print("result is", result)
-    finally: # Evertime it executes and if no value given as output by try then it is reraised to print the error message. So Finally is executed just brfore the try statement gets terminate.
-        print("executing finally clause")
+# def divide(x, y): # defining a function
+#     try:
+#         result = x / y
+#     except ZeroDivisionError: # Expecting ZeroDivisionError
+#         print("division by zero!")
+#     else: # If the exception is not ZeroDivisionError then else part is executed
+#         print("result is", result)
+#     finally: # Evertime it executes and if no value given as output by try then it is reraised to print the error message. So Finally is executed just brfore the try statement gets terminate.
+#         print("executing finally clause")
 
-divide(3,9)
+# divide(3,9)

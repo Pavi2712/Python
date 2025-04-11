@@ -1,0 +1,6 @@
+-->So far we’ve encountered two ways of writing values: expression statements and the print() function.
+-->A third way is using the write() method of file objects; 
+There are several ways to format output:
+1.Formatting string literals:
+    Begin a string with f or F before the opening quotation mark. Inside this string, you can write a Python expression between { and } characters that can refer to variables or literal values.
+2.str.Format():
