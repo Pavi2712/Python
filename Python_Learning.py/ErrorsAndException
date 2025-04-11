@@ -1,0 +1,76 @@
+There are (at least) two distinguishable kinds of errors: syntax errors and exceptions.
+Syntax Error: It is also known as parsing errors ,a syntax error occurs when the code violates(break) the language's 
+grammatical rules.These errors are detected by the interpreter at compile-time, before the program is executed,
+Exception Error: an exception is a runtime error that happens when something unexpected occurs during the program's
+execution, even if the syntax is correct. 
+
+Syntax Error:
+
+The parser repeats the offending line and displays little arrows pointing at the place where the 
+error was detected. Note that this is not always the place that needs to be fixed. 
+
+Exceptions: 
+Even if a statement or expression is syntactically correct, it may cause an error when an attempt is made to execute it. Errors detected during execution are called exceptions and are not unconditionally fatal:
+      "unconditionally fatal" usually refers to an error or situation that immediately causes the program to stop running, no matter what — it can't be caught or recovered from by typical error-handling mechanisms like try/except.
+
+-->When an exception occurs, it may have associated values, also known as the exception’s arguments. 
+
+Handling Exceptions:
+  We can handle the exceptions by try , except and else.
+
+Why we use raise at the end of the code?
+raise ensures that errors aren’t swallowed silently and are either handled in a higher-level exception handler or logged properly.
+
+# Re-raising Exception
+
+def divide(a, b):
+    try:
+        result = a / b
+        return result
+    except ZeroDivisionError as e:
+        print(f"Error: {e}")  
+        raise  # Re-raise the exception to propagate it further
+
+def main():
+    try:
+        divide(10, 0)
+    except ZeroDivisionError as e:
+        print(f"Handling error in main: {e}")  # Handle it at a higher level
+
+main()
+
+Raising Exceptions:
+      The raise statement allows the programmer to force a specified exception to occur. 
+
+There are two ways of raising the exceptions:
+1.Raising an exception instance:
+You can raise an instance of an exception class (i.e., an object of a specific exception type).
+For example:
+raise ValueError("Something went wrong")
+In this case, ValueError is the exception class, and "Something went wrong" is the message passed to the ValueError constructor to provide more context about the error.
+
+2.Raising an exception class itself:
+You can also raise the exception class itself without instantiating it manually. When you do this, Python implicitly instantiates the exception class by calling its constructor with no arguments. This is a shorthand way of raising the exception.
+For example:
+raise ValueError
+
+Exception Chaining:
+If an unhandled exception occurs inside an except section, it will have the exception being handled attached to it and included in the error message.
+
+It tells the difference of using raise / raise..from.. /
+
+User-defined Exceptions:
+When something goes wrong in a Python program, Python raises an built-in exception.But sometimes, your own code or a library you're writing needs to signal an error that's specific to your situation—something Python wouldn't know about in advance.
+To do that, you can define your own exception class.
+
+Defining Clean-up Actions:
+ Finally clause is executed. In real world applications, the finally clause is useful for releasing external resources (such as files or network connections), regardless of whether the use of the resource was successful.
+
+  Predefined Clean-up Actions:  
+  The with statement allows objects like files to be used in a way that ensures they are always cleaned up promptly and correctly.After the statement is executed, the file f is always closed, even if a problem was encountered while processing the lines. Objects which, like files, provide predefined clean-up actions will indicate this in their documentation.
+
+for line in open("myfile.txt"):
+    print(line, end="")
+with open("myfile.txt") as f:
+    for line in f:
+        print(line, end="")
