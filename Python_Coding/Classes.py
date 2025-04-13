@@ -194,7 +194,6 @@ rev = Reverse('spam')
 iter(rev)
 for char in rev:
     print(char)
-
 #Generators:
 def reverse(data):
     for index in range(len(data)-1, -1, -1):
