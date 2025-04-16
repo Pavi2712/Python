@@ -5,3 +5,31 @@ There are several ways to format output:
     Begin a string with f or F before the opening quotation mark. Inside this string, you can write a Python expression between { and } characters that can refer to variables or literal values.
 2.str.Format():
 The str.format() method of strings requires more manual effort. You’ll still use { and } to mark where a variable will be substituted and can provide detailed formatting directives, but you’ll also need to provide the information to be formatted.
+
+Important: ---> When you don’t need fancy output but just want a quick display of some variables for debugging purposes, you can convert any value to a string with the repr() or str() functions.
+The str()--->function is meant to return representations of values which are fairly human-readable. repr()---> is meant to generate representations which can be read by the interpreter (or will force a SyntaxError if there is no equivalent syntax). 
+
+--->Formatted String Literals:
+    Passing an integer after the ':' will cause that field to be a minimum number of characters wide. This is useful for making columns line up.
+
+    -->math.pi:3f rounds pi to three places after the decimal
+    -->print(f'{name:10} ==> {phone:10d}') -> 10 will move the space at right side where as 10d will move the space atleft side.
+
+Other modifiers can be used to convert the value before it is formatted. '!a' applies ascii(), '!s' applies str(), and '!r' applies repr():
+!s --> User-readable
+!r --> Debug/developer-readable
+!a --> ASCII-safe representation 
+
+The = specifier can be used to expand an expression to the text of the expression, an equal sign, then the representation of the evaluated expression.
+
+-->The String format() Method:
+1.Directly we can assign the value inside the format method.
+2.We can mention the position also inside the brackets.
+3.We can also use keyword arguments inside the format method and call them inside brackets.
+4.We can combine position as well as keyword argument also.
+5.We can access the value from dictionary also using the format index[key]:d
+6.We can also pass dictionary as keyword argument since accessing is easy. Meaning ** syntax unpacks the dictionary into named keyword arguments.
+
+str.zfill() --> which pads a numeric string on the left with zeros.
+
+
