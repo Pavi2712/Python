@@ -32,4 +32,21 @@ The = specifier can be used to expand an expression to the text of the expressio
 
 str.zfill() --> which pads a numeric string on the left with zeros.
 
+-->Reading and Writing Files:
+open() returns a file object, and is most commonly used with two positional arguments and one keyword argument.
+Syntax: open(filename, mode, encoding=None)
+Normally, files are opened in text mode, that means, you read and write strings from and to the file, which are encoded in a specific encoding.
+-->UTF-8 is the modern de-facto standard, encoding="utf-8" is recommended unless you know that you need to use a different encoding.
+
+Different modes: It is optional
+r - read 
+w - write
+a - append
+r+ - Both read and write
+b - binary 
+
+Binary mode - Binary mode data is read and written as bytes objects. You can not specify encoding when opening file in binary mode.
+
+
+
 
