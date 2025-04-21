@@ -1,0 +1,29 @@
+History:
+1969: All modern operating systems have their roots in 1969 when Dennis Ritchie and Ken Thompson developed the C language and the Unix operating system at AT&T Bell Labs.By 1975, when AT&T started selling Unix commercially, about half of the source code was written by others. The hippies
+were not happy that a commercial company sold software that they had written; the resulting
+(legal) battle ended in there being two versions of Unix: the official AT&T Unix, and the
+free BSD Unix.
+
+1980: Since every company started developing individual Unix,Richard Stallman aimed to end this era of Unix separation and everybody re-inventing the wheel by starting the GNU project, Linux.
+
+1990: Linus Torvalds,combination of POSIX compliant kernel with the GNU tools.
+
+2015:
+Today more than 97 percent of the world's supercomputers, and 80 percent of all smartphones uses Linux.
+Linux is by far the most commonly used operating system in the world.Linux kernel version 4.0 was released in April 2015.
+
+Distributions:
+
+A Linux distribution is a collection of (usually open source) software on top of a Linux
+kernel.
+Red Hat:Red Hat is a billion dollar commercial Linux company that puts a lot of effort in developing
+Linux.They give their products (Red Hat Enterprise Linux and Fedora) away for free.
+Ubuntu:Canonical started sending out free compact discs with Ubuntu Linux in 2004 and quickly became popular for home users.Canonical wants Ubuntu to be an easy to use graphical Linux desktop without need to ever see a command line. 
+Debian: Debian is seen as one of the most stable Linux distributions.Debian comes in three versions: stable, testing and unstable.
+
+About software licenses:
+With proprietary software, control tends to lie more with the vendor, while with Free and Open Source Software it tends to be more weighted towards the end user.
+
+From a legal perspective, Free and Open Source Software can be considered as software to which users generally receive more rights via their license agreement than they would have with a proprietary software license, yet the underlying license mechanisms are the same.
+
+

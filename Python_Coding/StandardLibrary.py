@@ -9,6 +9,13 @@ from urllib.request import urlopen
 from datetime import date
 import zlib
 from timeit import Timer
+import reprlib
+import pprint 
+import textwrap
+from string import Template
+from array import array
+from collections import deque
+import bisect
 # print(os.getcwd()) # It is used to get the current working directory.
 # os.chdir('/server') # It is used to change the currnt directory.
 # Note: It is working when we not give the /
@@ -94,8 +101,62 @@ print(Timer('a,b = b,a', 'a=1; b=2').timeit())
 # The unittest module is not as effortless as the doctest module, but it allows a more comprehensive set of tests to be maintained in a separate file.
 
 
+#Output Formatting:
+# repr() is the "official" string representation. reprlib module is  “safe” and shortened version of repr(). It is specifically useful for debugging purposes.
+print(reprlib.repr(set('supercalifragilisticexpialidocious'))) 
 
+#pprint module is nothing but pretty print. Which makes nested data structures easier to read.
+t = [[[['black', 'cyan'], 'white', ['green', 'red']],
+      [['magenta', 'yellow'], 'blue']]]   # t contains nested lists.
+pprint.pprint(t, width=30) # We are passing the list to pprint and width = 30; which means one line width should not exit 30.
 
+#The textwrap module formats paragraphs of text to fit a given screen width
+doc = """The wrap() method is just like fill() except that it returns
+a list of strings instead of one big string with newlines to separate
+the wrapped lines."""
 
+print("TextWrap",textwrap.fill(doc, width=55))
 
+#locale module which helps format data according to cultural conventions (e.g., U.S. vs Europe formatting).
 
+#Templating:
+# 1.The string module includes a versatile Template class with a simplified syntax suitable for editing by end-users. This allows users to customize their applications without having to alter the application.
+# 2.The format uses placeholder names formed by $ with valid Python identifiers.$$ creates a single escaped $.
+
+t = Template('${village} folk send $$10 to ${cause}.')
+print(t.substitute(village='Nottingham', cause='the ditch fund'))
+
+# The substitute() method raises a KeyError when a placeholder is not supplied in a dictionary or a keyword argument. Its better to use safe_substitute(), so if we didnt pass the argument also it just print as it is.
+
+# Working with Binary Data Record Layouts:
+# The struct module provides pack() and unpack() functions for working with variable length binary record formats. The following example shows how to loop through header information in a ZIP file without using the zipfile module. Pack codes "H" and "I" represent two and four byte unsigned numbers respectively. The "<" indicates that they are standard size and in little-endian byte order
+
+#Multithreading:
+# Threading is a technique for decoupling tasks which are not sequentially dependent. Threads can be used to improve the responsiveness of applications that accept user input while other tasks run in the background. A related use case is running I/O in parallel with computations in another thread.
+
+#Logging:
+# The logging module offers a full featured and flexible logging system. At its simplest, log messages are sent to a file or to sys.stderr.By default, informational and debugging messages are suppressed and the output is sent to standard error. Other output options include routing messages through email, datagrams, sockets, or to an HTTP Server. New filters can select different routing based on message priority: DEBUG, INFO, WARNING, ERROR, and CRITICAL.
+
+#Weak References:
+# Python does automatic memory management.
+# This approach works fine for most applications but occasionally there is a need to track objects only as long as they are being used by something else. Unfortunately, just tracking them creates a reference that makes them permanent.
+# The weakref module provides tools for tracking objects without creating a reference. When the object is no longer needed, it is automatically removed from a weakref table and a callback is triggered for weakref objects. 
+
+#Tools for Working with Lists:
+
+# The array module provides an array object that is like a list that stores only homogeneous data and stores it more compactly.
+
+a = array('H', [4000, 10, 700, 22222]) #Here H is just a type code. a stores the list value.
+print(sum(a))
+print(a[1:3]) # here 10,700 is in index 1 and 2
+
+# The collections module provides a deque object that is like a list with faster appends and pops from the left side but slower lookups in the middle. These objects are well suited for implementing queues and breadth first tree searches
+d = deque(["task1", "task2", "task3"])
+d.append("task4")
+print("Handling", d.popleft())
+print("d",d)
+
+#The bisect module with functions for manipulating sorted lists. We can also add values and sort them too.
+scores = [(100, 'perl'), (200, 'tcl'), (400, 'lua'), (500, 'python')]
+bisect.insort(scores, (300, 'ruby'))
+print(scores)

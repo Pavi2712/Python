@@ -74,3 +74,10 @@ for line in open("myfile.txt"):
 with open("myfile.txt") as f:
     for line in f:
         print(line, end="")
+
+Raising and Handling Multiple Unrelated Exceptions:
+The builtin ExceptionGroup wraps a list of exception instances so that they can be raised together. 
+By using except* instead of except, we can selectively handle only the exceptions in the group that match a certain type. 
+
+Enriching Exceptions with Notes:
+There are cases where it is useful to add information after the exception was caught. For this purpose, exceptions have a method add_note(note) that accepts a string and adds it to the exception’s notes list. 

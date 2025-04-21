@@ -1,3 +1,4 @@
+import json
 year = 2016
 event = 'Referendum'
 print(f"Result of the year {year} {event}")
@@ -33,3 +34,7 @@ for x in range(1,11):
 
 for x in range(1,11):
     print(repr(x).rjust(2), repr(x*x).rjust(3), repr(x*x*x).rjust(4))
+
+x = [1, 'simple', 'list']
+print(json.dumps(x)) #Returns the output in string 
+
