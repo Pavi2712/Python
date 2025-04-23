@@ -10,7 +10,7 @@ def check_valid_password(passwordVal):
         if ascii_value >=65 and ascii_value <= 90:
             capital_letter = True
         elif ascii_value >=97 and ascii_value <=122:
-            small_letter = False
+            small_letter = True
         elif not ((ascii_value>=48 and ascii_value <=57) or
               (ascii_value >=65 and ascii_value <= 90)or
                (ascii_value >=97 and ascii_value <=122)):
@@ -25,12 +25,7 @@ def main():
     if check_valid_password(password):
         print("Password is valid.")
     else:
-        print("Invalid password. Must include at least:")
-        print("One capital letter")
-        print("One small letter")
-        print("One special character")
-        print("Minimum length of 8 characters")
-
+        print("Invalid password")
 
 if __name__ == "__main__":
     main()

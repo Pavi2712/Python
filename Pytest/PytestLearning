@@ -1,0 +1,3 @@
+How to install Pytest:
+pip install -U pytest #This comment is used to install pytest. If want we can install that inside the virtual environment.
+$ pytest --version #This gives the version of the pytest which is installed.
