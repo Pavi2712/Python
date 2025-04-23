@@ -26,10 +26,10 @@ def main():
         print("Password is valid.")
     else:
         print("Invalid password. Must include at least:")
-        print("- One capital letter")
-        print("- One small letter")
-        print("- One special character")
-        print("- Minimum length of 8 characters")
+        print("One capital letter")
+        print("One small letter")
+        print("One special character")
+        print("Minimum length of 8 characters")
 
 
 if __name__ == "__main__":
