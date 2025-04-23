@@ -1,0 +1,12 @@
+pwd: It will print the current Directory.
+cd: It is used to change the Directory.
+1.cd followed by path then it will move to the target directory.
+2.cd not followed by path then it will move to the home directory.
+3.cd ~ it will also do the same as above one.
+4.cd .. It will move to the parent directory.
+5.cd . It will stay in the current directory.
+6.cd - It will move to the previous directory.
+
+absolute and relative paths:
+
+

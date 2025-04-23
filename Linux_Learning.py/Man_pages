@@ -1,0 +1,3 @@
+man : Most Unix files and commands have pretty good man pages to explain their use.
+man $command: 
+

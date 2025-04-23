@@ -1,0 +1,16 @@
+podman machine list -
+podman machine start - 
+podman pull jenkins/jenkins:lts -
+mkdir d:\jenkins_home -
+podman run -d --name jenkins -p 8080:8080 -v D:\jenkins_home:/var/jenkins_home --user root jenkins/jenkins:lts - 
+podman ps - 
+podman logs -f jenkins - 
+<!-- Running from: /usr/share/jenkins/jenkins.war -->
+podman rm --force 7750924eb3ee - 
+podman run -d --name jenkins -P -v D:\jenkins_home:/var/jenkins_home --user root jenkins/jenkins:lts
+
+1.Enter the Admin password
+2.Once opening the local portal enter the username, password , mail id.
+3.Install the nucessary plugins.
+4.Jenkins Dashboard is opened.
+5.Clicking on New Item we can able to create the build by configuring Github.

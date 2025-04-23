@@ -31,6 +31,7 @@ Example 2:
 [0, 2, 4, 6, 8]
 
 <!-- enumerate() function: -->
+    We use enumerate function over other looping is because it will return the looping value as well as the index value. the same for loop also do but it takes extra lines of code and thats why we use enumerfate function.
     Syntax : enumerate(iterable, start=0) Start value is default, returns the enumerate object. iterable must be a sequence and the start value default is 0 and we can mention the random value.
    For Example:  
     seasons = ['spring','autumn','summer','winter']
@@ -99,11 +100,11 @@ Example:
   def http_error(status):
 ...     match status:
 ...         case 400:
-...             return ""Bad Request""
+...             return "Bad Request"
 ...         case 404:
-...             return ""Not found""
+...             return "Not found"
 ...         case 500:
-...             return ""Bad Gateway""
+...             return "Bad Gateway"
 ...
 >>> http_error(404)
 Output:
@@ -178,7 +179,10 @@ Origin
 
 The first statement of the function may be a string literal.
 
-The execution of a function introduces a new symbol table used for the local variables of the function. More precisely, all variable assignments in a function store the value in the local symbol table; whereas variable references first look in the local symbol table, then in the local symbol tables of enclosing functions, then in the global symbol table, and finally in the table of built-in names.
+The execution of a function introduces a new symbol table used for the local variables of the function. More precisely, 
+all variable assignments in a function store the value in the local symbol table; whereas variable references first look in
+the local symbol table, then in the local symbol tables of enclosing functions, then in the global symbol table, and finally in
+the table of built-in names.
 
 When a function calls another function, or calls itself recursively, a new local symbol table is created for that call.
 
@@ -268,7 +272,7 @@ Example2:
 [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
 
 <!-- Documentation Strings: -->
-        "1. The first line should always be a short, concise summary of the object’s purpose.
+1. The first line should always be a short, concise summary of the object’s purpose.
 2. This line should begin with a capital letter and end with a period.
 3.If there are more lines in the documentation string, the second line should be blank, visually separating the summary from the rest of the description. 
 4.The Python parser does not strip indentation from multi-line string literals in Python.
@@ -276,10 +280,10 @@ Example2:
 
 Example: 
 def my_function():
-    """"""Do nothing, but document it.
+    """Do nothing, but document it.
 
     No, really, it doesn't do anything.
-    """"""
+    """
     pass
 
 print(my_function.__doc__)
