@@ -14,3 +14,18 @@ podman run -d --name jenkins -P -v D:\jenkins_home:/var/jenkins_home --user root
 3.Install the nucessary plugins.
 4.Jenkins Dashboard is opened.
 5.Clicking on New Item we can able to create the build by configuring Github.
+
+dir in windows
+ls in linux
+
+Steps:
+1.podman pull jenkins/jenkins:lts -
+2.mkdir d:\jenkins_home -
+3.change the directory to jenkins_home
+4.podman run -d --name jenkins -p 8080:8080 -v D:\jenkins_home:/var/jenkins_home --user root jenkins/jenkins:lts
+or 
+4.podman run -d --name jenkins -P -v D:\jenkins_home:/var/jenkins_home --user root jenkins/jenkins:lts
+5.podman ps
+6.podman logs -f jenkins
+7.Open the portal.
+
