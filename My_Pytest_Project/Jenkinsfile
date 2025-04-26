@@ -40,32 +40,32 @@ pipeline {
                 dir('Python/My_Pytest_Project') {
                     sh '''#!/bin/bash
                         . venv/bin/activate
-                        pytest tests/test_part1.py
+                        pytest 
                     '''
                 }
             }
         }
 
-        stage('Test Stage 2') {
-            steps {
-                dir('Python/My_Pytest_Project') {
-                    sh '''#!/bin/bash
-                        . venv/bin/activate
-                        pytest tests/test_part2.py
-                    '''
-                }
-            }
-        }
+//         stage('Test Stage 2') {
+//             steps {
+//                 dir('Python/My_Pytest_Project') {
+//                     sh '''#!/bin/bash
+//                         . venv/bin/activate
+//                         pytest tests/test_part2.py
+//                     '''
+//                 }
+//             }
+//         }
 
-        stage('Test Stage 3') {
-            steps {
-                dir('Python/My_Pytest_Project') {
-                    sh '''#!/bin/bash
-                        . venv/bin/activate
-                        pytest tests/test_part3.py
-                    '''
-                }
-            }
-        }
-    }
-}
+//         stage('Test Stage 3') {
+//             steps {
+//                 dir('Python/My_Pytest_Project') {
+//                     sh '''#!/bin/bash
+//                         . venv/bin/activate
+//                         pytest tests/test_part3.py
+//                     '''
+//                 }
+//             }
+//         }
+//     }
+// }
