@@ -16,7 +16,6 @@ pipeline {
                 dir('Python/My_Pytest_Project') {
                     sh '''#!/bin/bash
                         python3 -m venv venv
-                        ls -la venv/
                         . venv/bin/activate
                         pip install --upgrade pip
                     '''
