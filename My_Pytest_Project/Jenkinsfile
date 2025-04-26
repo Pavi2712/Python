@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Setup Virtual Environment') {
+            steps {
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install --upgrade pip
+                '''
+            }
+        }
+
+        stage('Deployment - Install Dependencies') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    pip install -r requirements.txt
+                '''
+            }
+        }
+
+        stage('Test Stage 1') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    pytest tests/test_part1.py
+                '''
+            }
+        }
+
+        stage('Test Stage 2') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    pytest tests/test_part2.py
+                '''
+            }
+        }
+
+        stage('Test Stage 3') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    pytest tests/test_part3.py
+                '''
+            }
+        }
+    }
+}

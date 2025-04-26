@@ -18,6 +18,9 @@ podman run -d --name jenkins -P -v D:\jenkins_home:/var/jenkins_home --user root
 dir in windows
 ls in linux
 
+start - podman ps , podman exec -it jenkins container id
+stop - stop
+
 Steps:
 1.podman pull jenkins/jenkins:lts -
 2.mkdir d:\jenkins_home -
@@ -28,4 +31,50 @@ or
 5.podman ps
 6.podman logs -f jenkins
 7.Open the portal.
+
+How to schedule a job:
+configure -> triggers ->Build Periodically -> schedule ->
+Schule have time frames such as H/3 * * * * in jenkins , If we schedule for some time with any value * we have to stop that.
+min hour day/month month day/week
+* -->any value
+, -->value list separator
+- -->range of values
+/ -->step values
+
+25/4/2025
+Delete job
+create the folder , put some jobs inside the folder. If u want to delete one job need to go inside the job and delete the job.
+1.Create the pipeline - new item - pipeline
+2.Replay If we want to run the failured job we should run inside the job - replay so it will not distrub other
+build step and post build actions - predefined in freestyle but in pipeline we have to do
+
+Need to learn groovy script
+
+Pipeline:
+top level of jenkins
+we ask agent to do stage and steps
+Structure for Pipelines: pipeline , agent , stages , stage (steps).
+
+script:
+pipeline{
+    agent any
+    stages{
+        stage('checkout'){
+            steps{
+                git branch:'main', url: "project url need to mention" #branch - checkout
+            }
+        }
+        stage('Install'){
+            steps{
+                sh"pip install python" #sh means shell script
+                echo "pytest --env ${params.names}"
+                echo "name: ${params.names}"
+            }
+        }
+    }
+}
+
+
+Doubt:
+1: What is mean by list view and my view in while creating folder.
 
