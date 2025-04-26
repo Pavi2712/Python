@@ -4,20 +4,30 @@ pipeline {
     stages {
         stage('Python Installation') {
             steps {
-                sh '''
+                sh '''#!/bin/bash
                     apt-get update
                     apt-get install -y python3 python3-venv python3-pip
                 '''
             }
         }
 
-        stage('Setup Virtual Environment & Install Dependencies') {
+        stage('Setup Virtual Environment') {
             steps {
                 dir('Python/My_Pytest_Project') {
-                    sh '''
+                    sh '''#!/bin/bash
                         python3 -m venv venv
-                        source venv/bin/activate
+                        . venv/bin/activate
                         pip install --upgrade pip
+                    '''
+                }
+            }
+        }
+
+        stage('Deployment - Install Dependencies') {
+            steps {
+                dir('Python/My_Pytest_Project') {
+                    sh '''#!/bin/bash
+                        . venv/bin/activate
                         pip install -r requirements.txt
                     '''
                 }
@@ -27,8 +37,8 @@ pipeline {
         stage('Test Stage 1') {
             steps {
                 dir('Python/My_Pytest_Project') {
-                    sh '''
-                        source venv/bin/activate
+                    sh '''#!/bin/bash
+                        . venv/bin/activate
                         pytest tests/test_part1.py
                     '''
                 }
@@ -38,8 +48,8 @@ pipeline {
         stage('Test Stage 2') {
             steps {
                 dir('Python/My_Pytest_Project') {
-                    sh '''
-                        source venv/bin/activate
+                    sh '''#!/bin/bash
+                        . venv/bin/activate
                         pytest tests/test_part2.py
                     '''
                 }
@@ -49,8 +59,8 @@ pipeline {
         stage('Test Stage 3') {
             steps {
                 dir('Python/My_Pytest_Project') {
-                    sh '''
-                        source venv/bin/activate
+                    sh '''#!/bin/bash
+                        . venv/bin/activate
                         pytest tests/test_part3.py
                     '''
                 }
