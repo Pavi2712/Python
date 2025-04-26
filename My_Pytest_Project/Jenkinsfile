@@ -29,6 +29,7 @@ pipeline {
                     sh '''#!/bin/bash
                         . venv/bin/activate
                         ls -la
+                        pip install pytest
                     '''
                 }
             }
