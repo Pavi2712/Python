@@ -14,7 +14,8 @@ pipeline {
         stage('Setup Virtual Environment') {
             steps {
                 sh '''
-                    python33 -m venv venv
+                    # Use the default python3 installed on the system
+                    python3 -m venv venv
                     . venv/bin/activate
                     pip install --upgrade pip
                     pip install pytest
