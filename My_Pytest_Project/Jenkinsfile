@@ -1,70 +1,33 @@
 pipeline {
     agent any
-
-    environment {
-        PYTHON_BIN = '/usr/bin/python3.13' // full path to python3.13
-    }
-
     stages {
-        stage('Clean Workspace') {
+        stage('Check Python Version') {
             steps {
-                cleanWs() // Clean previous build files
+                sh 'python3 --version'
             }
         }
-
-        stage('Install Dependencies') {
+        stage('Create Virtual Environment') {
             steps {
-                sh '''
-                    apt-get update
-                    apt-get install -y python3 python3-pip python3-venv
-                '''
+                sh 'python3 -m venv venv'
             }
         }
-
-        stage('Setup Virtual Environment') {
+        stage('Activate Virtual Environment and Install Requirements') {
             steps {
                 sh '''
-                    $PYTHON_BIN -m venv venv
                     . venv/bin/activate
+                    python --version
                     pip install --upgrade pip
-                    pip install pytest
+                    if [ -f requirements.txt ]; then
+                        pip install -r requirements.txt
+                    fi
                 '''
             }
         }
-
-        stage('Verify Files') {
-            steps {
-                sh '''
-                    echo "Checking files in workspace:"
-                    pwd
-                    ls -R
-                '''
-            }
-        }
-
-        stage('Run Test Stage 1') {
+        stage('Run Tests') {
             steps {
                 sh '''
                     . venv/bin/activate
-                    pytest tests/test_part1.py
-                '''
-            }
-        }
-
-        stage('Run Test Stage 2') {
-            steps {
-                sh '''
-                    . venv/bin/activate
-                    pytest tests/test_part2.py
-                '''
-            }
-        }
-
-        stage('Run Test Stage 3') {
-            steps {
-                sh '''
-                    . venv/bin/activate
-                    pytest tests/test_part3.py
+                    pytest
                 '''
             }
         }
