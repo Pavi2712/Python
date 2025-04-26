@@ -16,6 +16,7 @@ pipeline {
                 dir('Python/My_Pytest_Project') {
                     sh '''#!/bin/bash
                         python3 -m venv venv
+                        ls -la venv/
                         . venv/bin/activate
                         pip install --upgrade pip
                     '''
@@ -25,9 +26,10 @@ pipeline {
 
         stage('Deployment - Install Dependencies') {
             steps {
-                dir('Python/My_Pytest_Project/requirements.txt') {
+                dir('Python/My_Pytest_Project') {
                     sh '''#!/bin/bash
                         . venv/bin/activate
+                        ls -la
                         pip install -r requirements.txt
                     '''
                 }
