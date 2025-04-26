@@ -16,56 +16,55 @@ pipeline {
                 dir('Python/My_Pytest_Project') {
                     sh '''#!/bin/bash
                         python3 -m venv venv
-                        . venv/bin/activate
-                        pip install --upgrade pip
+                        source venv/bin/activate
+                        python -m pip install --upgrade pip
                     '''
                 }
             }
         }
 
-        stage('Deployment - Install Dependencies') {
+        stage('Install Dependencies') {
             steps {
                 dir('Python/My_Pytest_Project') {
                     sh '''#!/bin/bash
-                        . venv/bin/activate
-                        ls -la
+                        source venv/bin/activate
                         pip install pytest
                     '''
                 }
             }
         }
 
-        stage('Test Stage 1') {
+        stage('Run Test Stage 1') {
             steps {
                 dir('Python/My_Pytest_Project') {
                     sh '''#!/bin/bash
-                        . venv/bin/activate
-                        pytest 
+                        source venv/bin/activate
+                        pytest tests/test_part1.py
                     '''
                 }
             }
         }
 
-//         stage('Test Stage 2') {
-//             steps {
-//                 dir('Python/My_Pytest_Project') {
-//                     sh '''#!/bin/bash
-//                         . venv/bin/activate
-//                         pytest tests/test_part2.py
-//                     '''
-//                 }
-//             }
-//         }
+        stage('Run Test Stage 2') {
+            steps {
+                dir('Python/My_Pytest_Project') {
+                    sh '''#!/bin/bash
+                        source venv/bin/activate
+                        pytest tests/test_part2.py
+                    '''
+                }
+            }
+        }
 
-//         stage('Test Stage 3') {
-//             steps {
-//                 dir('Python/My_Pytest_Project') {
-//                     sh '''#!/bin/bash
-//                         . venv/bin/activate
-//                         pytest tests/test_part3.py
-//                     '''
-//                 }
-//             }
-//         }
-//     }
-// }
+        stage('Run Test Stage 3') {
+            steps {
+                dir('Python/My_Pytest_Project') {
+                    sh '''#!/bin/bash
+                        source venv/bin/activate
+                        pytest tests/test_part3.py
+                    '''
+                }
+            }
+        }
+    }
+}
