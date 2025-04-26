@@ -11,23 +11,13 @@ pipeline {
             }
         }
 
-        stage('Setup Virtual Environment') {
+        stage('Setup Virtual Environment & Install Dependencies') {
             steps {
                 dir('Python/My_Pytest_Project') {
                     sh '''
                         python3 -m venv venv
-                        . venv/bin/activate
+                        source venv/bin/activate
                         pip install --upgrade pip
-                    '''
-                }
-            }
-        }
-
-        stage('Deployment - Install Dependencies') {
-            steps {
-                dir('Python/My_Pytest_Project') {
-                    sh '''
-                        . venv/bin/activate
                         pip install -r requirements.txt
                     '''
                 }
@@ -38,7 +28,7 @@ pipeline {
             steps {
                 dir('Python/My_Pytest_Project') {
                     sh '''
-                        . venv/bin/activate
+                        source venv/bin/activate
                         pytest tests/test_part1.py
                     '''
                 }
@@ -49,7 +39,7 @@ pipeline {
             steps {
                 dir('Python/My_Pytest_Project') {
                     sh '''
-                        . venv/bin/activate
+                        source venv/bin/activate
                         pytest tests/test_part2.py
                     '''
                 }
@@ -60,7 +50,7 @@ pipeline {
             steps {
                 dir('Python/My_Pytest_Project') {
                     sh '''
-                        . venv/bin/activate
+                        source venv/bin/activate
                         pytest tests/test_part3.py
                     '''
                 }
