@@ -74,6 +74,7 @@ pipeline{
     }
 }
 
+SCM - Source Code Management. Jenkins will connect to the SCM. Then pulls the jenkinsfile from the repo. It will reads and executes the stages and steps you defined inside the jenkinsfile.
 
 Doubt:
 1: What is mean by list view and my view in while creating folder.

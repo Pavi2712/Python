@@ -1,46 +1,36 @@
-from ast import literal_eval
 import click
 import re
 
 class AssessmentProgram:
-    def check_valid_password(self, password_val):
+    
+    def check_valid_password(self, password_val: str) -> tuple[bool, list[str]]:
         """
         Validates the password based on several rules.
         """
         try:
-            # Check for minimum length
             if len(password_val) < 8:
                 raise ValueError("Password must be at least 8 characters long.")
-            
-            # Check for at least one uppercase letter
             if not re.search(r'[A-Z]', password_val):
                 raise ValueError("Password must contain at least one capital letter.")
-            
-            # Check for at least one lowercase letter
             if not re.search(r'[a-z]', password_val):
                 raise ValueError("Password must contain at least one lowercase letter.")
-            
-            # Check for at least one special character
-            if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password_val):
+            if not re.search(r'[!@#$%^&*(),.?\":{}|<>]', password_val):
                 raise ValueError("Password must contain at least one special character.")
-            
-            return True
+            return True, None
         except ValueError as e:
-            return False, str(e)        
-    
-    def second_largest(self, numbers):
+            return False, [str(e)]        
+
+    def second_largest(self, numbers: list[int]) -> int:
         """
         Returns the second largest number in the list.
         """
         if len(numbers) < 2:
             raise ValueError("At least two numbers are required to find the second largest.")
-        for i in range(len(numbers)):
-            for j in range(i + 1, len(numbers)):
-                if numbers[j] > numbers[i]:
-                    numbers[i], numbers[j] = numbers[j], numbers[i]
-        return numbers[1]
+        unique_numbers = list(set(numbers))
+        unique_numbers.sort(reverse=True)
+        return unique_numbers[1]
 
-    def find_target_sum_indices(self, numbers, target):
+    def find_target_sum_indices(self, numbers: list[int], target: int) -> list[list[int]]:
         result = []
         for start in range(len(numbers)):
             total = numbers[start]
@@ -55,30 +45,40 @@ class AssessmentProgram:
                     break
         return result
 
-    def count_contiguous_characters(self, char_list):
+    def count_contiguous_characters(self, char_list: list[str]) -> list[str]:
         """
         Counts contiguous characters in the list and returns a list of formatted results.
         """
         freq = {}
         for char in char_list:
             if char:
-                if char in freq:
-                    freq[char] += 1
-                else:
-                    freq[char] = 1
+                freq[char] = freq.get(char, 0) + 1
         return [str(count) + char for char, count in freq.items()]
 
-    def is_palindrome(self, value):
+    def is_palindrome(self, value: str) -> bool:
         """
         Checks if the given string or number is a palindrome.
         """
         original = str(value)
-        reversed_str = ''
-        for index in range(len(original) - 1, -1, -1):
-            reversed_str += original[index]
+        reversed_str = original[::-1]
         return original == reversed_str
 
-    def display_menu(self):
+    def print_reverse_triangle(self, n: int) -> None:
+        """
+        Prints a reverse triangle pattern of numbers.
+        """
+        for i in range(1, n + 1):
+            for j in range(i, 0, -1):
+                print(j, end=' ')
+            print()
+
+    def swap_case(self, inp: str) -> str:
+        """
+        Swaps cases of all characters in a string.
+        """
+        return inp.swapcase()
+
+    def display_menu(self) -> None:
         """
         Displays the menu of available options.
         """
@@ -93,7 +93,7 @@ class AssessmentProgram:
 7: Exit
 """)
 
-    def run(self):
+    def run(self) -> None:
         """
         Runs the interactive CLI program using click.
         """
@@ -102,7 +102,7 @@ class AssessmentProgram:
 
             try:
                 choice_input = click.prompt("Enter your choice (0-7)", type=str)
-                if choice_input == '7' or choice_input == 'exit':
+                if choice_input == '7' or choice_input.lower() == 'exit':
                     click.echo("Exiting program.")
                     break
 
@@ -120,11 +120,8 @@ class AssessmentProgram:
                                 click.echo(f" - {error}")
 
                     case 1:
-                        user_input = click.prompt("Enter list of numbers (e.g., 10 20 30 or [10, 20, 30])", type=str)
-                        if user_input.startswith('[') and user_input.endswith(']'):
-                            numbers = list(map(int, user_input.strip('[]').split(',')))
-                        else:
-                            numbers = list(map(int, user_input.split()))
+                        user_input = click.prompt("Enter list of numbers separated by space", type=str)
+                        numbers = list(map(int, user_input.strip().split()))
                         result = self.second_largest(numbers)
                         click.echo(f"Second Largest: {result}")
 
@@ -137,40 +134,15 @@ class AssessmentProgram:
                         click.echo("Swapped String: " + self.swap_case(inp))
 
                     case 4:
-                        user_input = click.prompt("Enter characters (e.g., a a b OR ['a','a','b'])", type=str).strip()
-                        if user_input.startswith('[') and user_input.endswith(']'):
-                            try:
-                                chars = literal_eval(user_input)
-                            except Exception:
-                                click.echo("Invalid list format.")
-                                continue
-                        else:
-                            chars = user_input.split()
+                        user_input = click.prompt("Enter characters separated by space:", type=str)
+                        chars = user_input.strip().split()
                         click.echo(f"Result: {self.count_contiguous_characters(chars)}")
 
                     case 5:
-                        user_input = input("Enter list of numbers (e.g., 1 2 3 4 OR [1, 2, 3, 4]): ").strip()
-                        if user_input.startswith('[') and user_input.endswith(']'):
-                            try:
-                                numbers = literal_eval(user_input)
-                                if not isinstance(numbers, list) or not all(isinstance(x, int) for x in numbers):
-                                    print("Please enter a valid list of integers.")
-                                    continue
-                            except Exception:
-                                print("Invalid list format.")
-                                continue
-                        else:
-                            try:
-                                numbers = list(map(int, user_input.split()))
-                            except ValueError:
-                                print("Please enter a valid space-separated list of integers.")
-                                continue
-                        try:
-                            target_val = int(input("Enter target value: "))
-                        except ValueError:
-                            print("Please enter a valid integer target.")
-                            continue
-                        print("Result:", self.find_target_sum_indices(numbers, target_val))
+                        user_input = click.prompt("Enter list of numbers separated by space:", type=str)
+                        numbers = list(map(int, user_input.strip().split()))
+                        target_val = click.prompt("Enter target value", type=int)
+                        click.echo(f"Result: {self.find_target_sum_indices(numbers, target_val)}")
 
                     case 6:
                         val = click.prompt("Enter a string or number", type=str)
@@ -185,19 +157,15 @@ class AssessmentProgram:
             except ValueError:
                 click.echo("Please enter a valid integer choice.")
 
-            cont = click.prompt("\nDo you want to continue? (yes/no)", type=str)
-            if not cont.startswith('y'):
+            cont = click.confirm("\nDo you want to continue?", default= True)
+            if not cont:
                 click.echo("Thank you! Exiting now.")
                 break
 
-
-@click.command()
-def main():
+@click.command()    
+def main() -> None:
     """
     Runs the assessment program with a menu using the click package.
-
-    Returns:
-        None
     """
     app = AssessmentProgram()
     app.run()
