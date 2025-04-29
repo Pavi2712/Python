@@ -73,9 +73,17 @@ pipeline{
         }
     }
 }
-
+apt-get -y upgrade --fix-missing #It will install all the missing packages
 SCM - Source Code Management. Jenkins will connect to the SCM. Then pulls the jenkinsfile from the repo. It will reads and executes the stages and steps you defined inside the jenkinsfile.
+Difference between below two:
+podman run -it <image_id> - Creates a new container from the specified image and starts it interactively. (-it means interactive terminal.).When you want to start a new container from an image and interact with it.
+podman exec -it <container_id> - Executes a command inside an already running container, interactively.When you want to run a command or get a shell inside an existing running container without starting a new one.
 
-Doubt:
-1: What is mean by list view and my view in while creating folder.
+why we will use pyproject.tomal file instead of requirements.txt. What is mean by them.
+
+what is wheel (pyproject.tomal)
+poetry?
+pytest-sugar what is?
+What is mean by list view (all) and my view in (my pipeline views)while creating folder.
+
 

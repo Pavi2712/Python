@@ -1,3 +1,75 @@
 How to install Pytest:
 pip install -U pytest #This comment is used to install pytest. If want we can install that inside the virtual environment.
 $ pytest --version #This gives the version of the pytest which is installed.
+
+How to invoke pytest:
+Pytest is invoked with the command pytest.This will execute all tests in all files whose names follow the form test_*.py or \*_test.py in the current directory and its subdirectories.
+
+Specifying which tests to run:
+1.Run tests in a module:
+pytest test_mod.py #If we specify .py then that is a file name, if we mentionn only test_mod then that is the module name.
+2.Run tests in a directory:
+pytest testing/ #testing/ is the directory name. pytest will take all the testing file and testing functions and starts the execution. It will identify the testing files easily by the file name starting with test_ or end with test_.py
+3.Run tests by keyword expressions:
+pytest -k 'MyClass and not method' # -k tells pytest to filter tests by keyword expressions.
+       'MyClass and not method' # It is the keyword expression. Run tests that match "MyClass" but skip the test that match "method"
+
+       
+class MyClassTests: 
+    def test_myclass_behavior(self): #matches the class and does not match method. So, it will run
+        ...
+
+    def test_myclass_method_feature(self): #matches the class and also matches the method. So, it will not run.
+        ...
+
+def test_other_feature(): #It does match the class itself.
+    ...
+
+Run tests by collection arguments:
+module name related to the working directory, followed by specifiers like the class name and function name  separated by :: characters, and parameters from parameterization enclosed in [].
+
+1.To run a specific test within a module:
+pytest tests/test_mod.py::test_func  # Here tests/test_mod.py is the directory path for the file
+                                     # :: Double colons mean inside this file, go to a specific function/class
+                                     # test_func is the module
+2.To run all tests in a class:
+pytest tests/test_mod.py::TestClass #tests/test_mod.py file path ,:: tells left is the file and go the right mentioned function / class that is here "TestClass"
+
+3.Specifying a specific test method::
+pytest tests/test_mod.py::TestClass::test_method #tests/test_mod.py file path ,:: tells left is the file and go the right mentioned function / class that is here "TestClass" and within that class specifically run the test_method function.
+
+4.Specifying a specific parametrization of a test:
+pytest tests/test_mod.py::test_func[x1,y2] #tests/test_mod.py path for the file , :: tells left is the file and go the right mentioned function and passed the arguments x1,y1
+
+Run tests by marker expressions:
+
+In pytest, @pytest.mark.slow is a custom marker used to label certain tests — typically those that:
+1.take a long time to run
+2.perform heavy computations or network requests
+3.should be skipped during quick test runs
+
+1.pytest -m slow #It will select all the files which are mentioned as mark.slow and will run it.
+2.pytest -m "not slow" #It will select all the files which are not mentioned as mark.slow and will run it.
+3.pytest -m "slow(phase=1)" #We can also mention the phase = 1 in the functions so we can able to run that only.
+
+Run tests from packages: Need to explore more
+pytest --pyargs pkg.testing 
+
+Getting Help:
+pytest --version #shows where pytest was imported from.
+pytest --fixtures #shows available built in function arguments.
+pytest -h | --help # show help on command line and config file options.
+
+Profiling test execution duration:
+pytest --durations=10 --durations-min=1.0 #Here durations = 10 means the 10 files need to be shown with the duration_min condition of 1.0 sec and more runned 10 files.
+
+Sometimes the files that are too small and runned for 0.005s will not be shown, so we need to use -vv
+
+Managing loading of plugins:
+You can early-load plugins (internal and external) explicitly in the command-line with the -p option.
+
+pytest -p mupluginmodule 
+
+Disabling plugins:
+pytest -p no:doctest
+
