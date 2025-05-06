@@ -4,7 +4,7 @@ import re
 class AssessmentProgram:
     
     def check_valid_password(self, password_val: str) -> None:
-        pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$' #.* any characters (zero or more) , (?=.*[a-z]) -> Atleast one small character.
+        pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$' #.* any characters (zero or more) , (?=.*[a-z]) -> Atleast one small lowercase
         if not re.match(pattern, password_val):
             raise ValueError("Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (@#$%^&+=!).")
 
