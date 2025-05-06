@@ -1,0 +1,5 @@
+What fixtures are?
+In testing, a fixture provides a defined, reliable and consistent context for the tests. This include, environment or content(such as dataset).
+Fixtures define the steps and data that constitute the arrange phase of a test.In pytest, they are functions you define that serve this purpose.
+
+The services, state, or other operating environments set up by fixtures are accessed by test functions through arguments.

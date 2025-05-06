@@ -73,3 +73,92 @@ pytest -p mupluginmodule
 Disabling plugins:
 pytest -p no:doctest
 
+Other ways of calling pytest:
+You can invoke testing through the Python interpreter from the command line:
+python -m pytest [...]
+
+Calling pytest from Python code:
+We are able to invoke pytest directly in the python code.
+retcode = pytest.main()
+
+Also, we can able to import pytest and test in file in python code itself and run the python file alone to get the result.
+Example: python myinvoke.py #Example is explained inside the myinvoke.py file.
+
+How to write and report assertions in tests:
+Asserting with the assert statement:
+pytest allows you to use the standard Python assert for verifying expectations and values in Python tests.We just give assert and specify some conditions. If that assertion fails it will return the message of the function call.
+
+Also, If some message is specified with the assertion like this:
+assert a % 2 == 0, "value was odd, should be even"
+then, it is printed alongside the assertion introspection in the traceback.
+
+Assertions about expected exceptions:
+Checking whether the expected Error is raised using the assret.
+Matching exception messages:
+It is simple, We can pass the match keyword to check the returned error matches the regular expression.
+Matching exception groups:
+This is used to match group of errors by Exception group, and capturing those errors by group_contains. And also, using depth keyword and mentioned the numeric values we can able to test at particular group exception.
+
+Alternate form (legacy):
+There is an alternate form where you pass a function that will be executed, along *args and **kwargs, and pytest.raises() will execute the function with the arguments and assert that the given exception is raised,The reporter will provide you with helpful output in case of failures such as no exception or wrong exception.
+This form was the original pytest.raises() API, developed before the with statement was added to the Python language. But this is rarely used before using with.
+
+xfail mark and pytest.raises:
+What is the difference between pytest.mark.xfail(raises) and pytest.raises()?
+pytest.raises(...):
+Used when your test deliberately checks for an exception. This is common for normal behavior testing.Here we will expect the particular function should raise the exception Error.
+For Example:
+def divide(x,y):
+    return(x/y)
+def test_zero_division():
+    with.pytest.raises(ZeroDivisionError):
+    divide(1,0)
+
+pytest.mark.xfail(raises=...):
+This used when you're acknowledging a known failure that you expect will break, This is typically used to document bugs or unfinished code.
+def f():
+    raise IndexError()
+
+
+@pytest.mark.xfail(raises=IndexError)
+def test_f():
+    f()
+Assertions about expected warnings:
+
+Defining your own explanation for failed assertions:
+It is possible to add your own detailed explanations by implementing the pytest_assertrepr_compare hook.
+Syntax: pytest_assertrepr_compare(config, op, left, right)
+config (config)- pytest config object.
+op(operator) - It is the operator, like == , !=, not in.
+left(object) - It is the left operand.
+right(object) - It is the right operand.
+ 
+ 1. It will return the explanation for failing exceptions and return None for no custom explanation, otherwise returns the list of strings.
+
+Use in conftest:
+To return the customized error messaages we can use hooks.
+pytest_assertrepr_compare 
+
+Assertion introspection details:
+
+Pytest has a powerful feature called assertion introspection. It rewrites Python’s assert statements so that when an assertion fails, pytest can give you detailed explanations.
+Example:
+assert 5+3 == 10
+    8 != 10 #This works because pytest rewrites assert statements during test discovery.
+
+Also, Pytest only rewrites assert statements in test files that it collects directly. That is the file name should be properly named as test file. If we try to import a module from A file to B file and even though the B file satisfy the file name, but the A file is not then it wont follow assert introspection.
+
+For this pytest provides register_assert_rewrite, using this pytest will rewrite the assert inside A file and give you full introspection when it fails.
+
+Assertion rewriting caches files on disk:
+pytest will write back the rewritten modules to disk for caching. We can disable this behavior by adding below command in top of the context file.
+
+import sys
+sys.dont_write_bytecode = True
+
+By doing this, pytest will do benefits of assertion introspection,the only change is that the .pyc files won’t be cached on disk.
+
+Disabling assert rewriting:
+If we want to stop rewriting in pytest, we can choose below two options:
+1.Disable rewriting for a specific module by adding the string PYTEST_DONT_REWRITE to its docstring.
+2.Disable rewriting for all modules by using --assert=plain.

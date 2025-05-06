@@ -87,3 +87,56 @@ pytest-sugar what is?
 What is mean by list view (all) and my view in (my pipeline views)while creating folder.
 
 
+1.Pipeline template plugins need to be installed, and need to start and stop. - Done
+SMTP , port , language , sub , receiver , 
+manage jenkins ->system , system message , 
+plugins - check editable -  email extension template plugin (2) need to download -> system check wheter it is avaiabek , Extended E-mail notifigation , SMTP server - smtp.gmail.com , type if we give HTML in des also same , port , default receiptent ,  Reply to List sender email , Maximum attachement why -1? , 
+
+Freestyle - Configure  - post build options -editable post - build action ,Editable Email Notification
+ no developer  - receipts
+
+ Pipeline: 
+
+ Instaed of stages we write post, and post will have catches. Post is the thing used to put some output.
+deletedir - jenkins builtin function to delete the currect directory
+
+post{
+    success{
+        emailext(
+            subject:
+            body:
+            to
+        )
+    }
+}
+
+
+credentials : Need to add
+25 , 587 
+
+
+system logs - connection issue logs will be shown 
+allure - test reporting tool, it will collect the test status in a pictorial representation(UI)
+install pytest allure skipped - grey , green - pass , red - fail
+tests -> test reults -> Allure Path(test results path)
+sugar and beautiful soup.
+
+after build 1 commit we can see that is monitoring
+Homework: test folder create multiple sub folder,,, each folder have 3-4 files.
+features -> used to identify repos, folder is easily for monitoring purpose
+
+Allure -> install allure jenkin plugins -> add it -> tools - Allure commandline - give name for it (allure_results) - 2.34.0 -> Apply and save -> 
+
+pip install allure
+
+same path for the homewrk 3 builds
+
+Runtest:
+pytest -- allure-result  --trace || true
+
+create report - jenkinsa
+
+
+
+freestyle:
+post-build action- path allure-results 

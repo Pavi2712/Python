@@ -1,0 +1,71 @@
+1)click.prompt: 
+Purpose: Prompts the user for input in the terminal.
+Code:
+import click
+name = click.prompt("What is your name?", type=str)
+print(f"Hello, {name}!")
+
+It automatically handles type validation and re-prompts on invalid input.
+
+Example output:
+What is your name?: Pavithra
+Hello, Pavithra!
+
+2)click.command
+Purpose: Declares a function as a CLI command.
+Code:
+@click.command()
+def greet():
+    click.echo("Hello!")
+
+if __name__ == '__main__':
+    greet()
+Usage:
+$ python script.py
+Hello!
+3)click.option:
+Purpose: Adds optional command-line flags (with -- prefix).
+Code:
+@click.command()
+@click.option('--name', prompt='Your name', help='The person to greet')
+def greet(name):
+    click.echo(f"Hello, {name}!")
+Usage:
+$ python script.py --name Pavithra
+Hello, Pavithra!
+If --name is missing, it'll prompt for it interactively.
+4)click.argument:
+Purpose: Adds required positional arguments to your command.
+Code:
+@click.command()
+@click.argument('name')
+def greet(name):
+    click.echo(f"Hello, {name}!")
+Usage:
+$ python script.py Pavithra
+Hello, Pavithra!
+Arguments are required and positional. Unlike options, they don’t use flags.
+5)click.group:
+Purpose: Creates a CLI with multiple subcommands.
+Code:
+@click.group()
+def cli():
+    pass
+
+@cli.command()
+def hello():
+    click.echo("Hello!")
+
+@cli.command()
+def goodbye():
+    click.echo("Goodbye!")
+
+if __name__ == '__main__':
+    cli()
+Usage:
+$ python script.py hello
+Hello!
+
+$ python script.py goodbye
+Goodbye!
+
