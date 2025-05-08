@@ -140,3 +140,9 @@ create report - jenkinsa
 
 freestyle:
 post-build action- path allure-results 
+
+
+Allure:
+Step 1: pip install allure-pytest in V.E
+Step 2: Run the allure pytest to generate the allure-results
+Step 3: 

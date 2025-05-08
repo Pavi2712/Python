@@ -65,11 +65,11 @@ class AssessmentProgram:
 app = AssessmentProgram()
 
 @click.group()
-def cli():
-    """Assessment Program CLI"""
-    pass
+# def cli():
+#     """Assessment Program CLI"""
+#     pass
 
-@cli.group()
+# @cli.group()
 def password():
     """Password-related operations"""
     pass
@@ -83,13 +83,13 @@ def validate_password(password):
     except ValueError as e:
         click.echo(f"{e}")
 
-@cli.group()
+# @cli.group()
 def number():
     """Number-related operations"""
     pass
 
 @number.command("second-largest")
-@click.option('--numbers', prompt="Enter numbers", type=int, nargs=-1)
+@click.argument('numbers', type=int, nargs=-1)
 def second_largest(numbers):
     try:
         result = app.second_largest(list(numbers))
@@ -98,7 +98,7 @@ def second_largest(numbers):
         click.echo(f"{e}")
 
 @number.command("target-sum")
-@click.option('--numbers', prompt="Enter numbers", type=int, nargs=-1)
+@click.argument('numbers', type=int, nargs=-1)
 @click.option('--target', prompt="Enter target sum", type=int)
 def target_sum(numbers, target):
     try:
@@ -107,13 +107,13 @@ def target_sum(numbers, target):
     except Exception as e:
         click.echo(f"{e}")
 
-@cli.group()
+# @cli.group()
 def string():
     """String-related operations"""
     pass
 
 @string.command("count-chars")
-@click.option('--chars', prompt="Enter characters", type=str, nargs=-1)
+@click.argument('chars', type=str, nargs=-1)
 def count_chars(chars):
     try:
         result = app.count_contiguous_characters(list(chars))
@@ -127,10 +127,10 @@ def check_palindrome(value):
     result = app.is_palindrome(value)
     click.echo("It is a palindrome." if result else "Not a palindrome.")
 
-@cli.command()
+# @cli.command()
 @click.option('--num', prompt="Enter a number", type=int)
-def reverse_triangle(n):
-    app.print_reverse_triangle(n)
+def reverse_triangle(num):
+    app.print_reverse_triangle(num)
 
 @string.command("swap-case")
 @click.option('--text', prompt="Enter text", type=str)
