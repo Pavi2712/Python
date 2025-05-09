@@ -1,0 +1,12 @@
+[tool.pytest.ini_options]
+markers = "api"
+
+# pytest.ini file configuration
+[pytest]
+addopts = -v --tb=short --strict-markers
+markers =
+    api: mark a test as an API test
+log_cli = true
+log_cli_level = INFO
+log_cli_format = %(asctime)s [%(levelname)s] %(message)s
+log_cli_date_format = %Y-%m-%d %H:%M:%S

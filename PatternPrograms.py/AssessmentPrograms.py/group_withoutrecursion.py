@@ -65,16 +65,16 @@ class AssessmentProgram:
 app = AssessmentProgram()
 
 @click.group()
-# def cli():
-#     """Assessment Program CLI"""
-#     pass
-
-# @cli.group()
-def password():
-    """Password-related operations"""
+def cli():
+    """Assessment Program CLI"""
     pass
 
-@password.command("validate")
+@cli.command("validate")
+# def password():
+#     """Password-related operations"""
+#     pass
+
+# @password.command("validate")
 @click.option('--password', prompt="Enter a secure password", type=str)
 def validate_password(password):
     try:
@@ -83,12 +83,12 @@ def validate_password(password):
     except ValueError as e:
         click.echo(f"{e}")
 
-# @cli.group()
-def number():
-    """Number-related operations"""
-    pass
+@cli.command("second-largest")
+# def number():
+#     """Number-related operations"""
+#     pass
 
-@number.command("second-largest")
+# @number.command("second-largest")
 @click.argument('numbers', type=int, nargs=-1)
 def second_largest(numbers):
     try:
@@ -96,8 +96,8 @@ def second_largest(numbers):
         click.echo(f"Second Largest: {result}")
     except Exception as e:
         click.echo(f"{e}")
-
-@number.command("target-sum")
+@cli.command("target-sum")
+# @number.command("target-sum")
 @click.argument('numbers', type=int, nargs=-1)
 @click.option('--target', prompt="Enter target sum", type=int)
 def target_sum(numbers, target):
@@ -107,12 +107,12 @@ def target_sum(numbers, target):
     except Exception as e:
         click.echo(f"{e}")
 
-# @cli.group()
-def string():
-    """String-related operations"""
-    pass
+@cli.command("count-chars")
+# def string():
+#     """String-related operations"""
+#     pass
 
-@string.command("count-chars")
+# @string.command("count-chars")
 @click.argument('chars', type=str, nargs=-1)
 def count_chars(chars):
     try:
@@ -120,19 +120,20 @@ def count_chars(chars):
         click.echo(f"Character counts: {result}")
     except Exception as e:
         click.echo(f"{e}")
-
-@string.command("palindrome")
+@cli.command("palindrome")
+# @string.command("palindrome")
 @click.option('--value', prompt="Enter string to check", type=str)
 def check_palindrome(value):
     result = app.is_palindrome(value)
     click.echo("It is a palindrome." if result else "Not a palindrome.")
 
-# @cli.command()
+@cli.command("reverse-triangle")
 @click.option('--num', prompt="Enter a number", type=int)
 def reverse_triangle(num):
     app.print_reverse_triangle(num)
 
-@string.command("swap-case")
+@cli.command("swap-case")
+# @string.command("swap-case")
 @click.option('--text', prompt="Enter text", type=str)
 def swap_case(text):
     result = app.swap_case(text)
