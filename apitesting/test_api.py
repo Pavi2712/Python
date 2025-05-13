@@ -11,7 +11,7 @@ from playwright.sync_api import Playwright, APIRequestContext
 @pytest.fixture(scope="session")
 def api_request_context(
     playwright: Playwright,
-) -> Generator[APIRequestContext]:
+) -> Generator[APIRequestContext,None,None]:
     """
     Creates a Playwright APIRequestContext with predefined headers for API testing.
     """
