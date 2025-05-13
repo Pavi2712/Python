@@ -8,7 +8,8 @@ from playwright.sync_api import APIRequestContext
 def api_context(playwright) -> APIRequestContext:
     context = playwright.request.new_context(
         base_url="https://api.github.com",
-        extra_http_headers={"Authorization": "Bearer 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"}
+        extra_http_headers={"Authorization": "Bearer"}
+        # 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
         # http_credentials={
         #     "username": "Pavi2712",  
         #     "password": "Pavi@2712",
