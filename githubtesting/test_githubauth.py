@@ -63,4 +63,5 @@ def test_access_protected_route(api_session):
     except requests.exceptions.RequestException as e:
         pytest.fail(f"Request failed: {e}")
 
-#requests.Session() object, which allows us to reuse the same connection for multiple requests. This is more efficient than making separate requests, as it uses persistent connections and keeps cookies across requests.
+#requests.Session() object, which allows us to reuse the same connection for multiple requests. This is more efficient than making separate requests, 
+#as it uses persistent connections and keeps cookies across requests.
