@@ -146,3 +146,14 @@ Allure:
 Step 1: pip install allure-pytest in V.E
 Step 2: Run the allure pytest to generate the allure-results
 Step 3: 
+
+
+podman - podman pull jenkins (will pull the latest version)\
+podman pull jenkins/jenkins:lts
+podman ps - images
+podman ps -a - all the images
+podman start (container id)
+podman run -it (jenkins container id)
+
+
+init , iterator , generator, name
