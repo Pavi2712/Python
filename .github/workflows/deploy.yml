@@ -12,9 +12,7 @@ jobs:
         with:
           node-version: '18'
   deploy:
-    needs: test
     runs-on: ubuntu-latest
-    needs: test
     steps:
       - name: Get code
         uses: actions/checkout@v3
