@@ -1,0 +1,30 @@
+name: Events Demo
+on:
+  pull_request:
+    types:
+      - opened
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output event data
+        run: echo "${{ toJSON(github.event) }}"
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          echo "Installing dependencies..."
+          sleep 5  # Simulate installation time
+      - name: Test code
+        run: |
+          echo "Running tests..."
+          sleep 7  # Simulate test execution time
+      - name: Build project
+        run: |
+          echo "Building project..."
+          sleep 10  # Simulate build time
+      - name: Deploy to production
+        run: |
+          echo "Deploying to production..."
+          sleep 10  # Simulate deployment time
